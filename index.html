@@ -443,7 +443,7 @@ body.running .toast { bottom: calc(24px + env(safe-area-inset-bottom)); }
 <body>
 <noscript>Turn on JavaScript to use Preseason.</noscript>
 <script>
-/* Preseason v20261121-2014 */
+/* Preseason v20261121-2101 */
 /* ---------- shared animation loop ---------- */
 const ANIM = (() => {
   const set = new Set(); let running = false;
@@ -996,7 +996,7 @@ ex('v-up', {
   cues: ['Lie flat, arms overhead, legs straight', 'Lift arms and legs together to meet over your hips', 'Balance briefly on your seat', 'Lower slowly without crashing down']
 });
 ex('side-plank', {
-  n: 'Side plank', g: 'core', pg: null, src: ADDED, eq: [], uni: true,
+  n: 'Side plank', g: 'core', pg: null, src: ADDED, eq: [], uni: true, timed: true,
   cues: ['Forearm under shoulder, feet stacked', 'Lift hips so your body is one straight line', 'Hold; don\'t let hips sag', 'Switch sides halfway through the interval']
 });
 
@@ -1329,6 +1329,81 @@ ex('dead-hang', {
   cues: ['Hang from the bar with straight arms', 'Let your shoulders and spine relax', 'Breathe slowly; build up to 30–60 s']
 });
 
+
+/* =================== v3 additions: core, lower legs, 15/15, yoga =================== */
+ex('dead-bug', {
+  n: 'Dead bug', g: 'core', src: ADDED, eq: [], uni: true, yoga: true,
+  cues: ['Lie on your back, arms up, hips and knees bent to 90°', 'Press your lower back into the floor and keep it there', 'Slowly reach one arm back and the opposite leg out, just above the floor', 'Return and switch sides. Slow is the point'],
+  harder: 'Hold a light dumbbell in each hand'
+});
+ex('hanging-knee-raise', {
+  n: 'Hanging knee raise', g: 'core', src: ADDED, eq: ['bar'],
+  cues: ['Hang from the bar with shoulders pulled down', 'Curl your pelvis up and bring your knees to your chest', 'No swinging: pause at the top', 'Lower over 2–3 s'],
+  harder: 'Straight legs, or toes to bar'
+});
+ex('ring-rollout', {
+  n: 'Ring rollout', g: 'core', src: ADDED, eq: ['rings'],
+  cues: ['Rings about hip height. Hold them and lean in with a straight body (kneel to start)', 'Let your arms travel forward overhead as you lean', 'Ribs down, bum squeezed: don\'t let your lower back sag', 'Pull back with your abs and lats'],
+  harder: 'Lower the rings, or do it standing instead of kneeling'
+});
+ex('seated-calf-raise', {
+  n: 'Seated calf raise (bent knee)', g: 'lower', src: ADDED, eq: ['db', 'bench'], inc: 2.5,
+  cues: ['Sit on the bench, balls of your feet on a step or plate', 'Rest heavy dumbbells (or the barbell on a towel) on your knees', 'Rise as high as you can, pause 1 s', 'Lower slowly into a full stretch. The bent knee targets the soleus, the calf muscle that takes the most load when running'],
+  harder: 'Single leg, or a 3 s lowering'
+});
+ex('run-15-15', {
+  n: '15/15 runs', g: 'cardio', src: ADDED, eq: ['cones'],
+  cues: ['15 s fast: quicker than your 4×4 pace, controlled, not a flat-out sprint', '15 s very easy jog', 'Mark two cones. Run A→B in 15 s, jog, then run B→A', 'Same distance every rep. Your heart rate climbs through the set to about 90% of max']
+});
+ex('knee-to-wall', {
+  n: 'Knee-to-wall ankle rocks', g: 'yoga', src: ADDED, eq: ['wall'], uni: true,
+  cues: ['Face a wall, toes about 10 cm away, heel down', 'Drive your knee forward to touch the wall, knee over your 2nd toe', 'Rock in and out slowly; don\'t let the heel lift', 'Move the foot back as your ankle loosens']
+});
+ex('calf-stretch', {
+  n: 'Wall calf stretch', g: 'yoga', src: ADDED, eq: ['wall'], uni: true,
+  cues: ['Hands on the wall, one leg back, heel down, toes forward', 'Back knee straight for the first half', 'Then bend the back knee slightly to reach the lower calf (soleus)', 'Switch legs']
+});
+ex('toe-squat', {
+  n: 'Toe squat', g: 'yoga', src: ADDED, eq: [],
+  cues: ['Kneel and tuck all your toes under', 'Sit back towards your heels', 'Hands on the floor to take some weight if it\'s intense', 'Breathe; ease out if anything feels sharp']
+});
+ex('shin-stretch', {
+  n: 'Kneeling shin stretch', g: 'yoga', src: ADDED, eq: [],
+  cues: ['Kneel with the tops of your feet flat on the floor', 'Sit back on your heels', 'For more stretch, lean back on your hands and lift your knees slightly', 'Use a cushion under the knees if needed']
+});
+ex('single-leg-balance', {
+  n: 'Single-leg balance', g: 'yoga', src: ADDED, eq: [], uni: true,
+  cues: ['Stand on one leg, knee soft, foot gripping the floor', 'Hips level, eyes on a fixed point', 'Progress: close your eyes, turn your head, or stand on a cushion', 'Balance training cuts ankle sprain risk']
+});
+ex('high-lunge', {
+  n: 'High lunge (crescent)', g: 'yoga', src: ADDED, eq: [], uni: true,
+  cues: ['Long lunge: front knee over the ankle, back leg straight on the toes', 'Squeeze the glute of the back leg and tuck the pelvis', 'Arms overhead, ribs down', 'Feel the stretch at the front of the back hip']
+});
+ex('puppy-pose', {
+  n: 'Puppy pose', g: 'yoga', src: ADDED, eq: [],
+  cues: ['Start on all fours', 'Walk your hands forward, keep hips over knees', 'Let your chest sink towards the floor, arms long', 'Breathe into your upper back']
+});
+ex('open-book', {
+  n: 'Open book (upper-back rotation)', g: 'yoga', src: ADDED, eq: [], uni: true,
+  cues: ['Lie on your side, knees bent and stacked, arms straight in front', 'Sweep the top arm up and over to the other side, eyes following the hand', 'Keep your knees together and on the floor', 'Breathe out as you open; return slowly']
+});
+ex('doorway-pec-stretch', {
+  n: 'Doorway chest stretch', g: 'yoga', src: ADDED, eq: ['wall'], uni: true,
+  cues: ['Forearm on a door frame, elbow at shoulder height', 'Step through gently until you feel the chest stretch', 'Keep your ribs down and shoulder away from your ear', 'Halfway through, raise the elbow a little higher']
+});
+ex('wall-slide', {
+  n: 'Wall slides', g: 'yoga', src: ADDED, eq: ['wall'],
+  cues: ['Back, head and bum against a wall, arms in a goalpost shape', 'Slide your arms up while keeping them close to the wall', 'Ribs down; don\'t arch your lower back', 'Slow reps for the whole interval']
+});
+ex('bird-dog', {
+  n: 'Bird dog', g: 'yoga', src: ADDED, eq: [], uni: true,
+  cues: ['On all fours, hands under shoulders, knees under hips', 'Reach one arm forward and the opposite leg back', 'Hold 5 s with a flat back (imagine a glass of water on it)', 'Return and switch; keep alternating']
+});
+ex('chin-tuck', {
+  n: 'Chin tucks', g: 'yoga', src: ADDED, eq: [],
+  cues: ['Sit or stand tall', 'Glide your chin straight back (make a double chin), eyes level', 'Hold 3–5 s, then release', 'Easy to repeat at your desk']
+});
+
 /* ---------- group metadata ---------- */
 const GROUPS = {
   core: 'Core', upper: 'Upper body (push)', pull: 'Upper body (pull)', lower: 'Lower body', power: 'Power', plyo: 'Plyometric', warmup: 'Warm-up', cardio: 'Cardio', yoga: 'Yoga & stretching', custom: 'Custom'
@@ -1371,7 +1446,13 @@ const MUSCLE_MAP = {
   'happy-baby': ['adductors glutes', 'lowback hamstrings'], 'childs-pose': ['lowback lats', 'glutes shoulders'], 'sphinx-cobra': ['abs hipflex', 'lowback'],
   'supine-twist': ['lowback obliques', 'glutes chest'], 'thread-needle': ['upperback reardelt', 'lats traps'],
   'bridge-pose': ['glutes hipflex', 'hamstrings lowback quads'], 'legs-up-wall': ['hamstrings', 'lowback calves'], 'quad-stretch': ['quads hipflex', ''],
-  'dead-hang': ['lats forearms', 'shoulders upperback']
+  'dead-hang': ['lats forearms', 'shoulders upperback'],
+  'dead-bug': ['abs', 'hipflex obliques'], 'hanging-knee-raise': ['abs hipflex', 'obliques forearms lats'], 'ring-rollout': ['abs lats', 'shoulders obliques triceps'],
+  'seated-calf-raise': ['calves', ''], 'run-15-15': ['quads calves hipflex', 'glutes hamstrings'],
+  'knee-to-wall': ['calves', 'shins'], 'calf-stretch': ['calves', 'hamstrings'], 'toe-squat': ['calves', 'shins'], 'shin-stretch': ['shins', 'quads'],
+  'single-leg-balance': ['calves glutes', 'shins abs'], 'high-lunge': ['hipflex quads', 'glutes abs'], 'puppy-pose': ['lats shoulders', 'upperback chest'],
+  'open-book': ['upperback chest', 'obliques shoulders'], 'doorway-pec-stretch': ['chest shoulders', 'biceps'], 'wall-slide': ['upperback traps', 'shoulders reardelt'],
+  'bird-dog': ['lowback glutes', 'abs shoulders'], 'chin-tuck': ['traps', 'upperback']
 };
 Object.keys(MUSCLE_MAP).forEach(id => {
   if (!EX[id]) return;
@@ -1386,7 +1467,7 @@ Object.keys(MUSCLE_MAP).forEach(id => {
    ============================================================ */
 const TYPES = {
   strength: { label: 'Strength', cls: 't-strength' },
-  intervals: { label: '4×4 VO2', cls: 't-intervals' },
+  intervals: { label: 'VO2 max', cls: 't-intervals' },
   football: { label: 'Football', cls: 't-football' },
   team: { label: 'Team', cls: 't-team' },
   zone2: { label: 'Easy run', cls: 't-zone2' },
@@ -1402,29 +1483,85 @@ const WARMUP = [
 ];
 
 const TPL = {
-  SA: {
-    n: 'Strength A', type: 'strength', warmup: true,
-    desc: 'Deadlift, split squat, weighted pull-ups, floor press + Nordic curls',
+  /* ----- Strength: 3 blocks. Main lifts stay fixed within a block so weights can progress;
+     the last exercise (core / lower legs) rotates each week (systematic variation). ----- */
+  S1A: {
+    n: 'Foundations A', type: 'strength', warmup: true, from: 1, block: 1,
+    desc: 'Weeks 1–3. Learn the patterns with moderate weights: RDL, split squat, pull-ups, DB bench + Nordics. Leave 2–3 reps in reserve',
     items: [
-      { ex: 'box-jump', sets: 3, reps: '3', rest: 120, note: 'Power primer from the book: full effort, full rest' },
+      { ex: 'squat-jump', sets: 3, reps: '3', rest: 90, note: 'Power primer: jump high, land soft and quiet' },
+      { ex: 'bb-rdl', sets: 3, reps: '8-10', rest: 150 },
+      { ex: 'split-squat', sets: 3, reps: '8-12', rest: 90, alts: ['step-up'] },
+      { ex: 'pull-up', sets: 3, reps: '4-8', rest: 150, alts: ['ring-row'] },
+      { ex: 'db-bench-press', sets: 3, reps: '8-12', rest: 120, alts: ['push-up', 'bb-floor-press'] },
+      { ex: 'nordic-curl', sets: 2, reps: '3-5', rest: 120, note: 'Lower as slowly as you can; catch yourself with your hands' },
+      { ex: 'dead-bug', sets: 2, reps: '6-10', rest: 60, rot: [{ ex: 'dead-bug', reps: '6-10' }, { ex: 'side-plank', reps: '20-40' }, { ex: 'hanging-knee-raise', reps: '8-12' }] }
+    ]
+  },
+  S1B: {
+    n: 'Foundations B', type: 'strength', warmup: true, from: 1, block: 1,
+    desc: 'Weeks 1–3. Goblet squat, step-ups, hip thrust, ring rows, overhead press + Copenhagen planks',
+    items: [
+      { ex: 'skater', sets: 3, reps: '4', rest: 90, note: 'Power primer: stick each landing for 1 s' },
+      { ex: 'squat', sets: 3, reps: '8-12', rest: 120, alts: ['bb-front-squat'] },
+      { ex: 'step-up', sets: 3, reps: '8-10', rest: 90, alts: ['split-squat'] },
+      { ex: 'bb-hip-thrust', sets: 3, reps: '8-12', rest: 120, alts: ['glute-bridge'] },
+      { ex: 'ring-row', sets: 3, reps: '8-12', rest: 90, alts: ['db-row'] },
+      { ex: 'military-press', sets: 3, reps: '6-10', rest: 120, alts: ['push-up'] },
+      { ex: 'copenhagen-plank', sets: 2, reps: '15-25', rest: 60, note: 'Short lever to start: knee on the bench' },
+      { ex: 'calf-raise', sets: 2, reps: '10-15', rest: 60, rot: [{ ex: 'calf-raise', reps: '10-15' }, { ex: 'seated-calf-raise', reps: '12-15' }] }
+    ]
+  },
+  SA: {
+    n: 'Strength A', type: 'strength', warmup: true, from: 4, block: 2,
+    desc: 'Weeks 4–7. Heavier: deadlift, Bulgarian split squat, weighted pull-ups, floor press + Nordics',
+    items: [
+      { ex: 'box-jump', sets: 3, reps: '3', rest: 120, note: 'Power primer: full effort, full rest' },
       { ex: 'bb-deadlift', sets: 3, reps: '4-6', rest: 180 },
       { ex: 'bulgarian-split-squat', sets: 3, reps: '6-10', rest: 120 },
       { ex: 'pull-up', sets: 3, reps: '4-8', rest: 150, alts: ['ring-row'] },
       { ex: 'bb-floor-press', sets: 3, reps: '6-10', rest: 120, alts: ['push-up', 'db-bench-press'] },
-      { ex: 'nordic-curl', sets: 2, reps: '3-6', rest: 120 }
+      { ex: 'nordic-curl', sets: 2, reps: '4-6', rest: 120 },
+      { ex: 'ring-rollout', sets: 2, reps: '6-10', rest: 60, rot: [{ ex: 'ring-rollout', reps: '6-10' }, { ex: 'hanging-knee-raise', reps: '8-12' }, { ex: 'side-plank', reps: '30-45' }] }
     ]
   },
   SB: {
-    n: 'Strength B', type: 'strength', warmup: true,
-    desc: 'Squat, hip thrust, ring rows, overhead press + Copenhagen planks',
+    n: 'Strength B', type: 'strength', warmup: true, from: 4, block: 2,
+    desc: 'Weeks 4–7. Front squat, hip thrust, barbell rows, overhead press, single-leg jumps + Copenhagen planks',
     items: [
-      { ex: 'skater', sets: 3, reps: '4', rest: 90, note: 'Power primer from the book: stick each landing' },
-      { ex: 'squat', sets: 3, reps: '8-12', rest: 120, alts: ['bb-front-squat'] },
-      { ex: 'bb-hip-thrust', sets: 3, reps: '8-12', rest: 120 },
-      { ex: 'ring-row', sets: 3, reps: '8-12', rest: 90, alts: ['bb-row', 'db-row'] },
-      { ex: 'military-press', sets: 3, reps: '6-10', rest: 120 },
+      { ex: 'single-leg-forward-jump', sets: 3, reps: '3', rest: 90, note: 'Power primer: jump far, stick the landing on one leg' },
+      { ex: 'bb-front-squat', sets: 3, reps: '5-8', rest: 150, alts: ['squat'] },
+      { ex: 'bb-hip-thrust', sets: 3, reps: '6-10', rest: 120 },
+      { ex: 'bb-row', sets: 3, reps: '6-10', rest: 120, alts: ['ring-row', 'db-row'] },
+      { ex: 'military-press', sets: 3, reps: '5-8', rest: 120 },
+      { ex: 'copenhagen-plank', sets: 2, reps: '20-30', rest: 60, note: 'Long lever (foot on the bench) once the short lever is easy' },
+      { ex: 'seated-calf-raise', sets: 2, reps: '10-15', rest: 60, rot: [{ ex: 'seated-calf-raise', reps: '10-15' }, { ex: 'calf-raise', reps: '8-12' }] }
+    ]
+  },
+  S3A: {
+    n: 'In-season A', type: 'strength', warmup: true, from: 8, block: 3,
+    desc: 'Weeks 8–12, Mondays. Heavy and short to keep strength and speed through team preseason. Stop 1–2 reps before failure',
+    items: [
+      { ex: 'box-jump', sets: 3, reps: '3', rest: 120, alts: ['squat-jump'] },
+      { ex: 'bb-front-squat', sets: 3, reps: '3-5', rest: 180, alts: ['squat'] },
+      { ex: 'bb-rdl', sets: 3, reps: '5-6', rest: 150 },
+      { ex: 'pull-up', sets: 3, reps: '3-6', rest: 150, alts: ['ring-row'] },
+      { ex: 'db-bench-press', sets: 3, reps: '6-8', rest: 120, alts: ['bb-floor-press', 'push-up'] },
+      { ex: 'nordic-curl', sets: 2, reps: '3-5', rest: 120 },
+      { ex: 'side-plank', sets: 2, reps: '30-45', rest: 60, rot: [{ ex: 'side-plank', reps: '30-45' }, { ex: 'ring-rollout', reps: '6-10' }] }
+    ]
+  },
+  S3B: {
+    n: 'In-season B (light)', type: 'strength', warmup: true, from: 8, block: 3,
+    desc: 'Weeks 8–12, between team sessions. Quick and light, nothing to failure. Keeps groins and calves robust',
+    items: [
+      { ex: 'skater', sets: 3, reps: '4', rest: 60 },
+      { ex: 'lateral-lunge', sets: 3, reps: '6-8', rest: 90 },
+      { ex: 'bb-hip-thrust', sets: 3, reps: '6-8', rest: 120 },
+      { ex: 'ring-row', sets: 3, reps: '8-12', rest: 90, alts: ['bb-row'] },
+      { ex: 'push-up', sets: 3, reps: '8-15', rest: 90, alts: ['military-press'] },
       { ex: 'copenhagen-plank', sets: 2, reps: '20-30', rest: 60 },
-      { ex: 'calf-raise', sets: 2, reps: '10-15', rest: 60 }
+      { ex: 'calf-raise', sets: 2, reps: '10-12', rest: 60, rot: [{ ex: 'calf-raise', reps: '10-12' }, { ex: 'seated-calf-raise', reps: '10-15' }] }
     ]
   },
   VR: {
@@ -1434,6 +1571,10 @@ const TPL = {
   VB: {
     n: '4×4 dribbling intervals', type: 'intervals', mode: 'dribble', warmup: false, work: 240, rec: 180, hrLo: 0.90, hrHi: 0.95,
     desc: 'Same 4×4 at 90–95% max HR, dribbling a cone track with the left foot. Engine and touch in one session'
+  },
+  VF: {
+    n: '15/15 runs', type: 'intervals', mode: 'short', warmup: false, work: 15, rec: 15, reps: 20, setRec: 180, hrLo: 0.90, hrHi: 0.95,
+    desc: 'Sets of 20 × (15 s fast, 15 s easy jog), 3 min easy between sets. Raised VO2 max in a trial alongside 4×4s, and feels like the repeated efforts in a game'
   },
   FIN: {
     n: 'Left-foot finishing', type: 'football', desc: '10 min of finishing straight after the dribbling 4×4s',
@@ -1475,6 +1616,26 @@ const TPL = {
     n: 'Morning yoga: Recovery', type: 'yoga', morning: true, desc: '10–12 min before work',
     items: [{ ex: 'worlds-greatest-stretch', sec: 40, sides: 2 }, { ex: 'couch-stretch', sec: 45, sides: 2 }, { ex: 'pigeon', sec: 45, sides: 2 }, { ex: 'figure-4', sec: 40, sides: 2 }, { ex: 'bridge-pose', sec: 40 }, { ex: 'legs-up-wall', sec: 60 }]
   },
+  YE: {
+    n: 'Morning yoga: Match-day flow', type: 'yoga', morning: true, desc: 'Moving, short holds. For training and game days: long static holds just before hard efforts can blunt power a little',
+    items: [{ ex: 'cat-cow', sec: 45 }, { ex: 'inchworm', sec: 45 }, { ex: 'worlds-greatest-stretch', sec: 40, sides: 2 }, { ex: 'high-lunge', sec: 30, sides: 2 }, { ex: 'cossack-squat', sec: 45 }, { ex: 'hip-90-90', sec: 45 }, { ex: 'leg-swings', sec: 30 }, { ex: 'leg-swings-side', sec: 30 }, { ex: 'single-leg-balance', sec: 20, sides: 2 }]
+  },
+  YF: {
+    n: 'Morning yoga: Hip flexors & quads', type: 'yoga', morning: true, desc: 'Front of the hips and thighs: your kicking leg, sprinting, and time on the bike and in a chair',
+    items: [{ ex: 'cat-cow', sec: 45 }, { ex: 'low-lunge', sec: 45, sides: 2 }, { ex: 'high-lunge', sec: 30, sides: 2 }, { ex: 'couch-stretch', sec: 45, sides: 2 }, { ex: 'lizard', sec: 40, sides: 2 }, { ex: 'sphinx-cobra', sec: 45 }, { ex: 'bridge-pose', sec: 40 }, { ex: 'childs-pose', sec: 45 }]
+  },
+  YG: {
+    n: 'Morning yoga: Ankles & calves', type: 'yoga', morning: true, desc: 'Ankle range for cutting, landing and deep squats, plus balance work that lowers ankle sprain risk',
+    items: [{ ex: 'down-dog', sec: 60, note: 'Pedal your feet' }, { ex: 'calf-stretch', sec: 45, sides: 2 }, { ex: 'knee-to-wall', sec: 40, sides: 2 }, { ex: 'toe-squat', sec: 40 }, { ex: 'shin-stretch', sec: 40 }, { ex: 'malasana', sec: 45 }, { ex: 'single-leg-balance', sec: 30, sides: 2 }]
+  },
+  YH: {
+    n: 'Morning yoga: Upper back & shoulders', type: 'yoga', morning: true, desc: 'Opens the chest and upper back after desk and bike time. Supports pull-ups and overhead pressing',
+    items: [{ ex: 'cat-cow', sec: 45 }, { ex: 'thread-needle', sec: 40, sides: 2 }, { ex: 'puppy-pose', sec: 45 }, { ex: 'open-book', sec: 40, sides: 2 }, { ex: 'doorway-pec-stretch', sec: 40, sides: 2 }, { ex: 'wall-slide', sec: 45 }, { ex: 'sphinx-cobra', sec: 40 }, { ex: 'dead-hang', sec: 30 }]
+  },
+  YI: {
+    n: 'Morning yoga: Desk reset (lower back)', type: 'yoga', morning: true, desc: 'For sitting all day: moves the spine, opens the hips, wakes up the glutes and trunk. At work, also stand and move for a minute or two every 30–60 minutes',
+    items: [{ ex: 'cat-cow', sec: 60 }, { ex: 'childs-pose', sec: 45 }, { ex: 'sphinx-cobra', sec: 45 }, { ex: 'bird-dog', sec: 60 }, { ex: 'low-lunge', sec: 40, sides: 2 }, { ex: 'figure-4', sec: 40, sides: 2 }, { ex: 'bridge-pose', sec: 45 }, { ex: 'open-book', sec: 30, sides: 2 }, { ex: 'chin-tuck', sec: 30 }]
+  },
   YD: {
     n: 'Yoga: Long Recovery Flow', type: 'yoga', desc: 'Optional 30 min flow for rest days',
     items: [{ ex: 'cat-cow', sec: 90 }, { ex: 'down-dog', sec: 60 }, { ex: 'low-lunge', sec: 60, sides: 2 }, { ex: 'lizard', sec: 60, sides: 2 }, { ex: 'half-splits', sec: 60, sides: 2 }, { ex: 'worlds-greatest-stretch', sec: 45, sides: 2 }, { ex: 'cossack-squat', sec: 60 }, { ex: 'hip-90-90', sec: 60 }, { ex: 'pigeon', sec: 90, sides: 2 }, { ex: 'frog', sec: 90 }, { ex: 'butterfly', sec: 60 }, { ex: 'sphinx-cobra', sec: 60 }, { ex: 'bridge-pose', sec: 60 }, { ex: 'happy-baby', sec: 60 }, { ex: 'quad-stretch', sec: 45, sides: 2 }, { ex: 'supine-twist', sec: 60, sides: 2 }, { ex: 'dead-hang', sec: 45 }, { ex: 'legs-up-wall', sec: 120 }]
@@ -1501,30 +1662,39 @@ function circuitSets(w) { return w <= 2 ? 3 : 4; }
 function blockCount(w) { return w <= 2 ? 3 : w === 7 ? 3 : 4; }
 function rpeTarget(w) { return w <= 2 ? '7' : w <= 5 ? '8' : w === 6 ? '8–9' : w === 7 ? '7' : '8'; }
 function z2LongMin(w) { return LONG_RUN[w] || 60; }
-const MORNING_YOGA = ['YC', 'YA', 'YB', 'YC', 'YA', 'YB', 'YC'];
+// Two-week yoga rotation (Mon..Sun). Desk reset on 4 workdays per fortnight; match-day flow on Saturdays.
+const MORNING_YOGA = [['YC', 'YI', 'YF', 'YH', 'YI', 'YE', 'YB'], ['YA', 'YI', 'YG', 'YH', 'YI', 'YE', 'YC']];
+function morningYoga(w, d) { return MORNING_YOGA[(w - 1) % 2][d]; }
+const STRENGTH_BLOCKS = [{ from: 1, to: 3, A: 'S1A', B: 'S1B', n: 'Foundations' }, { from: 4, to: 7, A: 'SA', B: 'SB', n: 'Strength' }, { from: 8, to: 12, A: 'S3A', B: 'S3B', n: 'In-season' }];
+function strengthBlock(w) { return STRENGTH_BLOCKS.find(b => w >= b.from && w <= b.to) || STRENGTH_BLOCKS[0]; }
+function strengthTpl(w, ab) { return strengthBlock(w)[ab]; }
+// Wednesday VO2 session alternates 15/15 and 4×4 runs; Saturday stays 4×4 dribbling.
+const VO2_WED = { 2: 'VF', 3: 'VR', 4: 'VF', 5: 'VR', 6: 'VF' };
+function vo2Wed(w) { return VO2_WED[w] || 'VR'; }
+function shortSets(w) { return Math.max(2, blockCount(w) - 1); }
 
 function defaultPlan(uid) {
   const inst = (tpl, ov) => ({ id: uid(), tpl, ov: ov || {} });
   const weeks = [];
   for (let w = 1; w <= 12; w++) {
     const wi = weekInfo(w);
-    const y = d => inst(MORNING_YOGA[d]);
+    const y = d => inst(morningYoga(w, d));
     let days;
     if (!wi.team) {
       days = [
-        [y(0), inst('SA')],
+        [y(0), inst(strengthTpl(w, 'A'))],
         [y(1), inst(wi.skills)],
-        [y(2), inst(wi.test ? 'TEST' : 'VR')],
-        [y(3), inst('SB')],
+        [y(2), inst(wi.test ? 'TEST' : vo2Wed(w))],
+        [y(3), inst(strengthTpl(w, 'B'))],
         [y(4)],
         [y(5), inst('VB'), inst('FIN')],
         [y(6), inst('LR')]
       ];
     } else {
       days = [
-        [y(0), inst('SA')],
+        [y(0), inst(strengthTpl(w, 'A'))],
         [y(1), inst('TEAM')],
-        [y(2), inst(wi.test ? 'TEST' : 'SB', wi.test ? {} : { light: true })],
+        [y(2), inst(wi.test ? 'TEST' : strengthTpl(w, 'B'), wi.test ? {} : { light: true })],
         [y(3), inst('TEAM')],
         [y(4)],
         [y(5), inst('GAME')],
@@ -1534,6 +1704,20 @@ function defaultPlan(uid) {
     weeks.push(days);
   }
   return weeks;
+}
+
+/* ---------- v2 → v3 upgrade: remap unlogged sessions in place (ids, moves and logs kept) ---------- */
+function upgradePlanV3(plan, logs, userTpl) {
+  let n = 0;
+  (plan || []).forEach((wk, wi) => wk.forEach((day, d) => day.forEach(inst => {
+    if (!inst || inst.extra || logs[inst.id] || userTpl[inst.tpl]) return;
+    const w = wi + 1; let to = null;
+    if (inst.tpl === 'SA' || inst.tpl === 'SB') to = strengthTpl(w, inst.tpl === 'SA' ? 'A' : 'B');
+    else if (inst.tpl === 'VR' && w <= 7) to = vo2Wed(w);
+    else if (['YA', 'YB', 'YC'].includes(inst.tpl)) to = morningYoga(w, d);
+    if (to && to !== inst.tpl) { inst.tpl = to; if (inst.ov) delete inst.ov.swaps; n++; }
+  })));
+  return n;
 }
 
 /* ============================================================
@@ -1550,7 +1734,7 @@ const JS_DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday
 
 function defaults() {
   return {
-    v: 2,
+    v: 3,
     settings: { start: null, age: null, maxHR: null, maxSrc: 'est', mDay: 0, mHour: 8, voice: true, beeps: true, wake: true, height: null, weight: null, sex: 'm', commuteMin: 120 },
     plan: null, tpl: {}, cex: {}, logs: {}, extra: [], meas: [], drafts: {}, snooze: 0, lastBackup: 0, created: Date.now(),
     food: {}, diet: { adj: 0 }, shop: {}
@@ -1564,7 +1748,8 @@ function load() {
     const d = Object.assign(defaults(), JSON.parse(raw));
     d.settings = Object.assign(defaults().settings, d.settings || {});
     d.food = d.food || {}; d.diet = d.diet || { adj: 0 }; d.shop = d.shop || {};
-    if ((d.v || 1) < 2) { d.v = 2; d.migrated = !!d.plan; }
+    if ((d.v || 1) < 2) { d.v = 3; d.migrated = !!d.plan; }
+    else if (d.v < 3) { d.v = 3; d.migrate3 = !!d.plan; }
     return d;
   } catch (e) { console.error(e); return defaults(); }
 }
@@ -1616,6 +1801,16 @@ function subFor(id, w, itemSub, depth) {
   return id;
 }
 function parseRange(r) { const m = String(r).match(/(\d+)\s*[-–]\s*(\d+)/); if (m) return [+m[1], +m[2]]; const n = parseInt(r, 10); return [n || 0, n || 0]; }
+// Weekly rotation for accessory slots: rot = [{ ex, reps }, ...], indexed from the block's first week
+function rotPick(it, W, from) {
+  if (!it.rot || !it.rot.length) return it;
+  const k = ((W - (from || 1)) % it.rot.length + it.rot.length) % it.rot.length;
+  const p = typeof it.rot[k] === 'string' ? { ex: it.rot[k] } : it.rot[k];
+  return Object.assign({}, it, p, { rotIdx: k });
+}
+function latestVo2() { const t = Object.values(S.logs).filter(l => l && l.vo2).sort((a, b) => b.ts - a.ts)[0]; return t ? +t.vo2 : null; }
+// 15 s at ~105% of the speed at VO2 max; running speed (km/h) ≈ VO2 max / 3.5
+function dist1515() { const v = latestVo2(); return v ? Math.round(v / 3.5 / 3.6 * 15 * 1.05 / 5) * 5 : null; }
 function resolve(inst, w) {
   const t = tplOf(inst.tpl);
   if (!t) return null;
@@ -1624,7 +1819,8 @@ function resolve(inst, w) {
   const r = { inst, t, id: inst.tpl, type: t.type, name: t.n, w: W, ov, warmup: !!t.warmup && ['strength', 'circuit', 'intervals'].includes(t.type) && !ov.nowarm, items: [] };
   const swaps = ov.swaps || {};
   if (t.type === 'strength') {
-    r.items = t.items.map((it, i) => {
+    r.items = t.items.map((it0, i) => {
+      const it = rotPick(it0, W, t.from);
       const base = swaps[i] || it.ex;
       const exId = subFor(base, W, it.sub);
       const sets = ov.sets || (t.custom && t.fixed ? it.sets : strengthSets(it.sets, W));
@@ -1637,10 +1833,12 @@ function resolve(inst, w) {
     r.work = ov.work || t.work || 45; r.brk = ov.brk != null ? ov.brk : (t.brk != null ? t.brk : 15); r.setRest = ov.setRest || t.setRest || 45;
   } else if (t.type === 'intervals') {
     r.mode = t.mode || 'hiit';
-    r.blocks = ov.blocks || blockCount(W);
+    r.blocks = ov.blocks || (r.mode === 'short' ? shortSets(W) : blockCount(W));
+    if (r.mode === 'short') { r.reps = ov.reps || t.reps || 20; r.setRec = t.setRec || 180; }
     r.work = t.work || 240; r.rec = t.rec || 180; r.moveSec = t.moveSec || 30;
     r.moves = (t.moves || []).map(m => subFor(m, W));
     if (r.mode === 'run') r.items = [{ ex: 'interval-run' }];
+    else if (r.mode === 'short') r.items = [{ ex: 'run-15-15' }];
     else if (r.mode === 'dribble') r.items = [{ dr: 'f35' }];
     else r.items = r.moves.filter((m, i, a) => a.indexOf(m) === i).map(ex => ({ ex }));
     r.hrLo = t.hrLo || 0.9; r.hrHi = t.hrHi || 0.95;
@@ -1665,7 +1863,8 @@ function estimate(r) {
   switch (r.type) {
     case 'strength': return Math.round(wu + r.items.reduce((a, it) => a + it.sets * (35 + (it.rest || 90)) * ((exOf(it.ex) || {}).uni ? 1.3 : 1), 0) / 60);
     case 'circuit': { const n = r.items.length; return Math.round(wu + (r.sets * (n * (r.work + r.brk) - r.brk + r.setRest) - r.setRest) / 60); }
-    case 'intervals': return Math.round((r.mode === 'hiit' ? wu : 10) + (r.blocks * (r.work + r.rec) - r.rec + 180) / 60);
+    case 'intervals': if (r.mode === 'short') return Math.round(10 + (r.blocks * (r.reps * (r.work + r.rec) - r.rec) + (r.blocks - 1) * r.setRec + 180) / 60);
+      return Math.round((r.mode === 'hiit' ? wu : 10) + (r.blocks * (r.work + r.rec) - r.rec + 180) / 60);
     case 'team': return r.min;
     case 'football': return r.items.reduce((a, it) => a + (it.min || 0), 0);
     case 'yoga': return Math.round(r.items.reduce((a, it) => a + (it.sec || 45) * (it.sides || 1) + 5, 0) / 60);
@@ -1676,9 +1875,9 @@ function estimate(r) {
 }
 function prescription(r, it) {
   const e = exOf(it.ex) || {};
-  if (r.type === 'strength') return `${it.sets} × ${it.reps}${e.timed ? ' s' : ''}${e.uni ? ' /side' : ''} · rest ${fmtRest(it.rest || 90)}`;
+  if (r.type === 'strength') return `${it.sets} × ${it.reps}${e.timed ? ' s' : ''}${e.uni ? ' /side' : ''} · rest ${fmtRest(it.rest || 90)}${it.rot ? ' · changes weekly' : ''}`;
   if (r.type === 'circuit') return `${r.work}s on / ${r.brk}s off`;
-  if (r.type === 'yoga') return `${it.sec || 45}s${(it.sides || 1) > 1 ? ' each side' : ''}`;
+  if (r.type === 'yoga') return `${it.sec || 45}s${(it.sides || 1) > 1 ? ' each side' : ''}${it.note ? ' · ' + it.note : ''}`;
   if (r.type === 'football') return `${it.min} min${it.part ? ' · ' + it.part : ''}`;
   return '';
 }
@@ -2736,7 +2935,7 @@ function sessionCard(f) {
   meta.push('~' + r.est + ' min');
   if (r.type === 'strength' || r.type === 'football' || r.type === 'yoga') meta.push(r.items.length + (r.type === 'football' ? ' drills' : r.type === 'yoga' ? ' poses' : ' exercises'));
   if (r.type === 'circuit') meta.push(r.items.length + ' × ' + r.sets + ' sets');
-  if (r.type === 'intervals') meta.push(r.blocks + ' × 4 min');
+  if (r.type === 'intervals') meta.push(r.mode === 'short' ? r.blocks + ' sets × ' + r.reps : r.blocks + ' × 4 min');
   if (r.type === 'zone2') { const hr = hrRange(r.hrLo, r.hrHi); if (hr) meta.push(hr[0] + '–' + hr[1] + ' bpm'); }
   return h('button', { class: 'scard ' + (TYPES[r.type] || {}).cls + (st ? ' st-' + st : ''), onclick: () => go('#s/' + f.inst.id) },
     h('div', { class: 'sc-main' }, typePill(r.type), h('div', { class: 'sc-name' }, r.name), h('div', { class: 'sc-meta' }, meta.join(' · '))),
@@ -2816,7 +3015,7 @@ function viewSession(iid) {
   page.append(h('div', { class: 'row gap wrap' }, typePill(r.type), h('span', { class: 'tag' }, ic('clock'), '~' + r.est + ' min'),
     r.type === 'strength' ? h('span', { class: 'tag' }, 'RPE ' + r.rpe) : null,
     r.type === 'circuit' ? h('span', { class: 'tag' }, r.sets + ' sets') : null,
-    r.type === 'intervals' ? h('span', { class: 'tag' }, r.blocks + ' blocks') : null,
+    r.type === 'intervals' ? h('span', { class: 'tag' }, r.mode === 'short' ? r.blocks + ' sets of ' + r.reps : r.blocks + ' blocks') : null,
     r.ov && r.ov.user ? h('span', { class: 'tag tag-ov' }, 'Adjusted') : null));
   if (l) page.append(logSummary(iid, r, l));
   page.append(h('div', { class: 'cta-row' },
@@ -2830,7 +3029,14 @@ function viewSession(iid) {
       hr ? h('div', {}, h('div', { class: 'big-num' }, hr[0] + '–' + hr[1], h('small', {}, ' bpm')), h('div', { class: 'muted sm' }, 'Target: ' + Math.round(r.hrLo * 100) + '–' + Math.round(r.hrHi * 100) + '% of max HR (' + maxHR() + ')'))
         : h('div', {}, h('b', {}, 'Add your age or max heart rate'), h('div', { class: 'muted sm' }, 'so the app can show your target zone. '), h('button', { class: 'link-btn', onclick: () => go('#settings') }, 'Open settings'))));
   }
-  if (r.type === 'intervals') page.append(h('p', { class: 'muted' }, r.mode === 'run'
+  if (r.type === 'intervals' && r.mode === 'short') {
+    const dm = dist1515();
+    page.append(h('p', { class: 'muted' }, 'Warm up, then run 15 s fast and jog 15 s easy, ' + r.reps + ' times in a row. Jog or walk easy for 3 minutes between sets. Fast means quicker than your 4×4 pace but controlled, not a flat-out sprint. Heart rate climbs through each set towards the target.'));
+    page.append(h('div', { class: 'tip' }, h('b', {}, dm ? 'Cones ' + dm + ' m apart. ' : 'Cones about 60 m apart. '),
+      dm ? 'Worked out from your latest VO2 max test. ' : 'Your VO2 test sets this distance once it\'s logged. ',
+      'Run A→B in 15 s, jog, then B→A. If you can\'t make it by the last reps, move the cones 5 m closer; if it\'s easy, 5 m further.'));
+  }
+  if (r.type === 'intervals' && r.mode !== 'short') page.append(h('p', { class: 'muted' }, r.mode === 'run'
     ? 'Warm up, then run 4 minutes hard enough to reach the target heart rate by minute 2–3, and jog easy for 3 minutes. A gentle hill helps you get there without sprinting. It should feel hard but controlled: you could not hold a conversation.'
     : r.mode === 'dribble' ? 'Set up the cone track below. Dribble it hard for 4 minutes, then 3 minutes easy. Keep the ball close on the slalom with your left foot. Your heart rate should reach the target by minute 2–3. If it doesn\'t, make the straight longer and drive harder.'
     : 'Each 4-minute block cycles through the moves below, 30 s each, without stopping, then an easy recovery jog.'));
@@ -2908,7 +3114,14 @@ function adjustBlock(f, r) {
       field('Break (s)', numInput(r.brk, { onchange: e => setOv('brk', e.target.value === '' ? null : +e.target.value) })),
       field('Set rest (s)', numInput(r.setRest, { onchange: e => setOv('setRest', +e.target.value || null) }))));
   }
-  if (r.type === 'intervals') {
+  if (r.type === 'intervals' && r.mode === 'short') {
+    const cur = ov.blocks || 'auto', curR = ov.reps || 'auto';
+    box.append(h('div', { class: 'grid2' },
+      field('Sets', h('select', { onchange: e => setOv('blocks', e.target.value === 'auto' ? null : +e.target.value) },
+        h('option', { value: 'auto', selected: cur === 'auto' }, auto('', shortSets(f.w))), [1, 2, 3, 4].map(n => h('option', { value: n, selected: cur === n }, n + ' sets')))),
+      field('Reps per set', h('select', { onchange: e => setOv('reps', e.target.value === 'auto' ? null : +e.target.value) },
+        h('option', { value: 'auto', selected: curR === 'auto' }, auto('', r.t.reps || 20)), [10, 12, 15, 16, 20, 24].map(n => h('option', { value: n, selected: curR === n }, n + ' reps'))))));
+  } else if (r.type === 'intervals') {
     const cur = ov.blocks || 'auto';
     box.append(field('4-minute blocks', h('select', { onchange: e => setOv('blocks', e.target.value === 'auto' ? null : +e.target.value) },
       h('option', { value: 'auto', selected: cur === 'auto' }, auto('', blockCount(f.w))), [2, 3, 4, 5, 6].map(n => h('option', { value: n, selected: cur === n }, n + ' blocks')))));
@@ -3057,7 +3270,7 @@ function viewPlan(wArg) {
   const st = dateOf(w, 0), en = dateOf(w, 6);
   page.append(h('div', { class: 'wk-head card' },
     h('div', {}, h('div', { class: 'kicker' }, 'Week ' + w + ' · ' + fmtDate(st) + '–' + fmtDate(en)), h('h2', {}, wi.phase + (wi.deload ? ' (lighter week)' : '')),
-      h('div', { class: 'muted sm' }, wi.team ? 'Team training Tue/Thu, games Sat · Strength: 2 sets, heavy · Recovery run Sunday' + (wi.test ? ' · VO2 retest Wednesday' : '') : 'Skills: ' + wi.fbName + ' · Strength sets: ' + strengthSets(3, w) + ' · 4×4 blocks: ' + blockCount(w) + ' · Long run: ' + z2LongMin(w) + ' min' + (wi.test ? ' · VO2 test Wednesday' : ''))),
+      h('div', { class: 'muted sm' }, wi.team ? 'Team training Tue/Thu, games Sat · Strength: In-season block, 2 sets, heavy · Recovery run Sunday' + (wi.test ? ' · VO2 retest Wednesday' : '') : 'Strength: ' + strengthBlock(w).n + ' block, ' + strengthSets(3, w) + ' sets · ' + (wi.test ? 'VO2 test Wednesday' : (vo2Wed(w) === 'VF' ? '15/15 runs Wed' : '4×4 run Wed')) + ', 4×4 dribble Sat · Skills: ' + wi.fbName + ' · Long run: ' + z2LongMin(w) + ' min')),
     weekProgress(w)));
   page.append(h('div', { class: 'week-list' }, DOW.map((dn, d) => h('div', { class: 'wl-day' + (inPlan(tp) && tp.w === w && tp.d === d ? ' today' : '') },
     h('div', { class: 'wl-date' }, h('b', {}, dn), h('span', {}, fmtDate(dateOf(w, d)))),
@@ -3127,7 +3340,9 @@ function viewTemplate(id) {
   page.append(h('div', { class: 'cta-row' },
     h('button', { class: 'btn', onclick: () => { const s = weekDayPicker('Add to plan', (wk, d) => { S.plan[wk - 1][d].push({ id: uid(), tpl: id, ov: {}, extra: true }); save(); s.close(); toast('Added to ' + DOW[d] + ', week ' + wk); }); } }, ic('plus'), 'Add to plan'),
     ['strength', 'circuit', 'yoga', 'football', 'zone2'].includes(t.type) ? h('button', { class: 'btn ghost', onclick: () => { BUILD.draft = JSON.parse(JSON.stringify(Object.assign({}, t, { _id: id }))); go('#build/' + id); } }, ic('edit'), t.custom ? 'Edit' : 'Edit for my plan') : null));
-  if (r.items.length && t.type !== 'zone2' && t.type !== 'test') r.items.forEach((it, i) => page.append(itemRow(it, prescription(r, it), null, null)));
+  if (t.block) page.append(h('p', { class: 'muted sm' }, 'Main lifts stay the same through the block so you can add weight. The last exercise rotates weekly.'));
+  if (r.items.length && t.type !== 'zone2' && t.type !== 'test') r.items.forEach((it, i) => page.append(itemRow(it, prescription(r, it), null, null,
+    it.rot ? 'Rotates weekly: ' + it.rot.map(x => (exOf(typeof x === 'string' ? x : x.ex) || {}).n).join(' → ') : null)));
   if (S.tpl[id] && TPL[id]) page.append(h('button', { class: 'btn ghost wide', onclick: () => { if (!confirm('Reset to the original version?')) return; delete S.tpl[id]; save(); render(true); } }, 'Reset to the original'));
   if (t.custom) page.append(h('button', { class: 'btn danger wide', onclick: () => {
     const used = S.plan.some(wk => wk.some(day => day.some(i => i.tpl === id)));
@@ -3165,6 +3380,7 @@ function viewBuilder(id) {
     D.items.forEach((it, i) => {
       const ref = itemRef(it) || { n: 'Missing' };
       const ctr = h('div', { class: 'b-params' });
+      const rotNote = it.rot ? h('div', { class: 'muted sm' }, 'Rotates weekly: ' + it.rot.map(x => (exOf(typeof x === 'string' ? x : x.ex) || {}).n).join(' → ') + '. ', h('button', { class: 'link-btn', onclick: () => { delete it.rot; render(true); } }, 'Keep only ' + ref.n)) : null;
       if (D.type === 'strength') ctr.append(
         field('Sets', numInput(it.sets || 3, { onchange: e => it.sets = +e.target.value || 3 })),
         field('Reps', h('input', { type: 'text', value: it.reps || '8-12', onchange: e => it.reps = e.target.value })),
@@ -3178,7 +3394,7 @@ function viewBuilder(id) {
           h('button', { class: 'icon-btn', 'aria-label': 'Move up', disabled: i === 0, onclick: () => { [D.items[i - 1], D.items[i]] = [D.items[i], D.items[i - 1]]; render(true); } }, ic('up')),
           h('button', { class: 'icon-btn', 'aria-label': 'Move down', disabled: i === D.items.length - 1, onclick: () => { [D.items[i + 1], D.items[i]] = [D.items[i], D.items[i + 1]]; render(true); } }, ic('down')),
           h('button', { class: 'icon-btn', 'aria-label': 'Remove', onclick: () => { D.items.splice(i, 1); render(true); } }, ic('trash')))),
-        ctr.children.length ? ctr : null));
+        rotNote, ctr.children.length ? ctr : null));
     });
     page.append(h('button', { class: 'btn ghost wide', onclick: () => pickItemSheet(D.type, it => { D.items.push(it); render(true); }) }, ic('plus'), D.type === 'football' ? 'Add drill' : D.type === 'yoga' ? 'Add pose' : 'Add exercise'));
   }
@@ -3269,7 +3485,7 @@ function viewProgress() {
   const meas = S.meas.filter(m => m.w != null);
   const tile = (label, val, sub) => h('div', { class: 'tile' }, h('div', { class: 'tile-l' }, label), h('div', { class: 'tile-v' }, val), sub ? h('div', { class: 'tile-s' }, sub) : null);
   const vo2Txt = tests.length ? tests[tests.length - 1].vo2 : '–';
-  const vo2Sub = tests.length > 1 ? (tests[tests.length - 1].vo2 - tests[0].vo2 >= 0 ? '+' : '') + (tests[tests.length - 1].vo2 - tests[0].vo2).toFixed(1) + ' since week ' + (tests[0].w || 1) : tests.length ? 'ml/kg/min' : 'Test in weeks 1, 6, 12';
+  const vo2Sub = tests.length > 1 ? (tests[tests.length - 1].vo2 - tests[0].vo2 >= 0 ? '+' : '') + (tests[tests.length - 1].vo2 - tests[0].vo2).toFixed(1) + ' since week ' + (tests[0].w || 1) : tests.length ? 'ml/kg/min' : 'Test in weeks 1, 7, 12';
   const wTxt = meas.length ? meas[meas.length - 1].w + ' kg' : '–';
   const wSub = meas.length > 1 ? ((meas[meas.length - 1].w - meas[0].w) >= 0 ? '+' : '') + (meas[meas.length - 1].w - meas[0].w).toFixed(1) + ' kg since ' + fmtDate(new Date(meas[0].ts)) : 'Weekly check-ins';
   page.append(h('div', { class: 'tiles' },
@@ -3287,7 +3503,7 @@ function viewProgress() {
     { name: 'Avg HR', color: C1, pts: hrLogs.filter(l => l.hrAvg).map(l => ({ x: l.ts, y: +l.hrAvg, lab: (tplOf(l.tpl) || {}).n })) },
     { name: 'Max HR', color: C2, pts: hrLogs.filter(l => l.hrMax).map(l => ({ x: l.ts, y: +l.hrMax, lab: (tplOf(l.tpl) || {}).n })) }], { unit: 'bpm' }));
 
-  const v1 = logs.filter(l => l.blocks && l.blocks.some(b => b && b.avg));
+  const v1 = logs.filter(l => l.blocks && l.blocks.some(b => b && b.avg) && (tplOf(l.tpl) || {}).mode !== 'short');
   page.append(CH.line('4×4 blocks: average heart rate', [{ name: 'Block avg HR', color: 'var(--acc)', pts: v1.map(l => { const a = l.blocks.filter(b => b && b.avg).map(b => +b.avg); return { x: l.ts, y: Math.round(a.reduce((x, y) => x + y, 0) / a.length), lab: a.length + ' blocks' }; }) }],
     { unit: 'bpm', band: hrRange(0.9, 0.95), bandLabel: 'Target 90–95%', note: maxHR() ? null : 'Add your age or max HR in Settings to see the target band.' }));
 
@@ -3333,7 +3549,7 @@ function viewProgress() {
   page.append(CH.line('Daily protein (ticked meals)', [
     { name: 'Eaten', color: C1, pts: fdays.map(k => ({ x: parseISO(k).getTime(), y: eatenTotals(parseISO(k)).p })) },
     { name: 'Target', color: C2, pts: fdays.map(k => ({ x: parseISO(k).getTime(), y: dietTargets(parseISO(k)).p })) }], { unit: 'g', empty: 'Tick meals in the Diet tab to see this' }));
-  page.append(CH.line('VO2 max (estimated)', [{ name: 'VO2 max', color: 'var(--c-test)', pts: tests.map(l => ({ x: l.ts, y: +l.vo2, lab: l.testType === 'beep' ? 'Beep L' + l.level + '-' + l.shuttle : (l.testDist || '') + ' m' })) }], { unit: 'ml/kg/min', empty: 'Tests are planned for weeks 1, 6 and 12' }));
+  page.append(CH.line('VO2 max (estimated)', [{ name: 'VO2 max', color: 'var(--c-test)', pts: tests.map(l => ({ x: l.ts, y: +l.vo2, lab: l.testType === 'beep' ? 'Beep L' + l.level + '-' + l.shuttle : (l.testDist || '') + ' m' })) }], { unit: 'ml/kg/min', empty: 'Tests are planned for weeks 1, 7 and 12' }));
 
   UI.prog.body = UI.prog.body || 'w';
   const bSel = h('select', { class: 'ch-select', onchange: e => { UI.prog.body = e.target.value; render(true); } }, MFIELDS.map(([k, l]) => h('option', { value: k, selected: k === UI.prog.body }, l)));
@@ -3379,7 +3595,7 @@ function viewSettings() {
       field('Max HR (bpm)', numInput(st.maxHR || (st.age ? Math.round(208 - 0.7 * st.age) : ''), { inputmode: 'numeric', onchange: e => { const v = +e.target.value; st.maxHR = v || null; st.maxSrc = v ? 'manual' : 'est'; save(); render(true); } }))),
     h('div', { class: 'muted sm' }, maxHR() ? 'Using ' + maxHR() + ' bpm: ' + (st.maxHR ? src[st.maxSrc] || '' : src.est) + '. It updates automatically if you log a higher max.' : 'Enter your age or a known max heart rate.'),
     maxHR() ? h('div', { class: 'zones' },
-      [['Zone 2', 0.6, 0.7, 't-zone2'], ['4×4 work', 0.9, 0.95, 't-intervals']].map(([n, a, b, c]) => { const r = hrRange(a, b); return h('div', { class: 'zone ' + c }, h('i', { class: 'dot' }), h('span', {}, n), h('b', {}, r[0] + '–' + r[1] + ' bpm')); })) : null,
+      [['Zone 2', 0.6, 0.7, 't-zone2'], ['Intervals', 0.9, 0.95, 't-intervals']].map(([n, a, b, c]) => { const r = hrRange(a, b); return h('div', { class: 'zone ' + c }, h('i', { class: 'dot' }), h('span', {}, n), h('b', {}, r[0] + '–' + r[1] + ' bpm')); })) : null,
     st.maxSrc !== 'est' && st.maxHR ? h('button', { class: 'link-btn', onclick: () => { st.maxHR = null; st.maxSrc = 'est'; save(); render(true); } }, 'Reset to the estimate') : null));
   page.append(h('section', { class: 'card' }, h('div', { class: 'card-title' }, 'Body & diet'),
     h('div', { class: 'grid2' },
@@ -3509,7 +3725,10 @@ function viewHelp() {
     h('p', {}, 'Keep the app open with the screen on. Phones pause timers when the screen locks. "Keep screen on" in Settings helps on supported phones.'),
     h('p', {}, 'Turn your ringer on for beeps. Voice cues use your phone\'s built-in voice.')));
   page.append(sec('How progression works',
-    h('p', {}, h('b', {}, 'Weeks 1–2 intro, 3–5 build, 6 peak, 7 deload + test, 8–12 around team training (retest in week 12). '), 'Strength sets, 4×4 blocks and the long run follow that automatically.'),
+    h('p', {}, h('b', {}, 'Weeks 1–2 intro, 3–5 build, 6 peak, 7 deload + test, 8–12 around team training (retest in week 12). '), 'Strength sets, interval blocks and the long run follow that automatically.'),
+    h('p', {}, h('b', {}, 'Strength blocks: '), 'Foundations (weeks 1–3), Strength (4–7) and In-season (8–12). The main lifts stay the same within a block so the weights can climb; the last exercise (core or lower legs) changes each week. A 2022 review found planned variation like this helps strength and muscle gain, while changing exercises at random hurts it. Once team training starts, one heavy session a week kept strength and sprint speed in pro footballers.'),
+    h('p', {}, h('b', {}, 'VO2 max days: '), 'Saturday is always 4×4 dribbling. Wednesday alternates 4×4 runs and 15/15 runs (15 s fast, 15 s easy), which also raised VO2 max in a trial. The 15/15 cone distance comes from your latest VO2 test.'),
+    h('p', {}, h('b', {}, 'Morning yoga: '), 'a two-week rotation of 8 routines: desk reset for the lower back four mornings a fortnight, a moving match-day flow on Saturdays, plus hips, hamstrings, hip flexors, ankles, upper back and recovery.'),
     h('p', {}, h('b', {}, 'Why this plan: '), '4×4 intervals at 90–95% max HR twice a week raised VO2 max ~11% in footballers and increased distance covered and sprints in matches. Strength and cardio together don\'t blunt strength or muscle gain overall, and cycling interferes less than running. Nordic curls roughly halve hamstring injuries; Copenhagen planks reduce groin injuries.'),
     h('p', {}, h('b', {}, 'Strength: '), 'each exercise has a rep range. When every set reaches the top of the range at RPE 8 or less, the app suggests adding weight next time (+5 kg on barbell lower-body lifts, +2.5 kg otherwise). Stuck for two sessions? It suggests a harder variation.'),
     h('p', {}, h('b', {}, 'Override anything: '), 'open a session and use "Adjust this session", or edit the session in Library → Sessions.')));
@@ -3527,7 +3746,7 @@ function viewOnboard() {
   const vals = { start: iso(defStart), age: st.age, maxHR: st.maxHR, mDay: st.mDay, mHour: st.mHour, height: st.height, weight: st.weight };
   const page = h('div', { class: 'page onboard' });
   page.append(h('div', { class: 'hero' }, h('div', { class: 'kicker' }, 'Preseason · 12 weeks'), h('h1', {}, 'Let\'s set up your plan'),
-    h('p', { class: 'muted' }, '4×4 intervals for VO2 max, two home strength sessions, left-foot football for a wing back, a weekly long run, yoga every morning, and a lean-bulk diet. Weeks 8–12 fit around team training. Everything can be changed.')));
+    h('p', { class: 'muted' }, '4×4 and 15/15 intervals for VO2 max, two home strength sessions that change every few weeks, left-foot football for a wing back, a weekly long run, yoga every morning, and a lean-bulk diet. Weeks 8–12 fit around team training. Everything can be changed.')));
   page.append(h('section', { class: 'card' },
     field('Start date (Monday of week 1)', h('input', { type: 'date', value: vals.start, onchange: e => vals.start = e.target.value })),
     h('div', { class: 'grid2' },
@@ -3609,6 +3828,7 @@ async function init() {
   buildShell();
   window.addEventListener('hashchange', () => render());
   try { await MEDIA.init(); } catch (e) { }
+  if (S.migrate3) { const n = upgradePlanV3(S.plan, S.logs, S.tpl); delete S.migrate3; save(); if (n) setTimeout(() => toast('Plan updated: 3 strength blocks, 15/15 runs and 5 new yoga routines. Logs are kept.'), 800); }
   if (S.migrated) { S.plan = defaultPlan(uid); S.drafts = {}; delete S.migrated; save(); setTimeout(() => toast('Your plan was updated to the new evidence-based version. Logs are kept.'), 800); }
   render();
   setInterval(updateTopbar, 30000);
@@ -3656,6 +3876,19 @@ function buildSteps(r) {
       if (i < r.items.length - 1) { if (r.brk > 0) out.push({ kind: 'break', label: 'Break', sec: r.brk, ex: r.items[i + 1].ex }); }
       else if (s < r.sets) out.push({ kind: 'rest', label: 'Set rest', sec: r.setRest, ex: r.items[0].ex });
     });
+  } else if (r.type === 'intervals' && r.mode === 'short') {
+    const dm = dist1515();
+    out.push(...warmSteps());
+    out.push({ kind: 'jog', label: 'Easy jog', ex: 'easy-run', sec: 300, note: 'Build gradually; finish with 3 short strides' });
+    out.push({ kind: 'prep', label: 'Get ready', sec: 15, ex: 'run-15-15' });
+    for (let b = 1; b <= r.blocks; b++) {
+      for (let k = 1; k <= r.reps; k++) {
+        out.push({ kind: 'block', short: true, label: 'Set ' + b + ' of ' + r.blocks + ' · rep ' + k + '/' + r.reps, sec: r.work, block: b, blocks: r.blocks, rep: k, reps: r.reps,
+          ex: 'run-15-15', title: 'Fast: 15 s', note: dm ? 'Cones ' + dm + ' m apart. Controlled fast, not a sprint' : 'Controlled fast, not a sprint' });
+        if (k < r.reps) out.push({ kind: 'ease', label: 'Easy · set ' + b, sec: r.rec, block: b, rep: k, ex: 'run-15-15', title: 'Easy jog: 15 s', note: 'Turn and get ready for the next one' });
+      }
+      out.push({ kind: 'recovery', short: true, label: b < r.blocks ? 'Set recovery' : 'Cool down', sec: b < r.blocks ? r.setRec : 180, block: b, ex: 'easy-run', title: b < r.blocks ? 'Easy jog or walk' : 'Easy jog to finish' });
+    }
   } else if (r.type === 'intervals') {
     const run = r.mode === 'run', drib = r.mode === 'dribble';
     if (run) { out.push(...warmSteps()); out.push({ kind: 'jog', label: 'Easy jog', ex: 'easy-run', sec: 300, note: 'Build gradually from easy to steady' }); }
@@ -3671,7 +3904,7 @@ function buildSteps(r) {
   } else if (r.type === 'yoga') {
     r.items.forEach((it, i) => {
       const n = it.sides || 1;
-      for (let k = 0; k < n; k++) out.push({ kind: 'pose', label: n > 1 ? (k === 0 ? 'First side' : 'Second side') : 'Hold', ex: it.ex, sec: it.sec || 45 });
+      for (let k = 0; k < n; k++) out.push({ kind: 'pose', label: n > 1 ? (k === 0 ? 'First side' : 'Second side') : 'Hold', ex: it.ex, sec: it.sec || 45, note: it.note });
       if (i < r.items.length - 1) out.push({ kind: 'transition', label: 'Next pose', sec: 6, ex: r.items[i + 1].ex });
     });
   } else if (r.type === 'football') {
@@ -3681,7 +3914,7 @@ function buildSteps(r) {
   }
   return out;
 }
-const PHASE_CLS = { jog: 'ph-warm', work: 'ph-work', block: 'ph-work', prep: 'ph-prep', break: 'ph-rest', rest: 'ph-rest', recovery: 'ph-rest', transition: 'ph-rest', warmup: 'ph-warm', pose: 'ph-yoga', drill: 'ph-drill', z2: 'ph-z2', cooper: 'ph-work' };
+const PHASE_CLS = { jog: 'ph-warm', work: 'ph-work', block: 'ph-work', prep: 'ph-prep', break: 'ph-rest', rest: 'ph-rest', recovery: 'ph-rest', ease: 'ph-rest', transition: 'ph-rest', warmup: 'ph-warm', pose: 'ph-yoga', drill: 'ph-drill', z2: 'ph-z2', cooper: 'ph-work' };
 const nm = id => ((exOf(id) || drOf(id) || {}).n || id);
 
 function visualFor(step, moveEx) {
@@ -3758,11 +3991,11 @@ function runTimed(f, r, steps, opt) {
     if (full) {
       el.vis.replaceChildren(visualFor(s, moveEx));
       const nameId = moveEx || s.ex || s.dr;
-      el.name.textContent = s.kind === 'break' || s.kind === 'rest' || s.kind === 'transition' || s.kind === 'prep' ? 'Next: ' + (s.dr ? nm(s.dr) : nm(s.ex || (s.moves && s.moves[0]))) : s.title ? s.title : (s.kind === 'z2' || s.kind === 'cooper' || s.kind === 'jog') ? s.label : nm(nameId);
+      el.name.textContent = s.kind === 'ease' ? s.title : s.kind === 'break' || s.kind === 'rest' || s.kind === 'transition' || s.kind === 'prep' ? 'Next: ' + (s.dr ? nm(s.dr) : nm(s.ex || (s.moves && s.moves[0]))) : s.title ? s.title : (s.kind === 'z2' || s.kind === 'cooper' || s.kind === 'jog') ? s.label : nm(nameId);
       el.sub.textContent = s.kind === 'work' ? 'Set ' + s.set + ' of ' + s.sets + ' · exercise ' + (s.idx + 1) + ' of ' + s.n
-        : s.kind === 'block' ? (s.moves ? 'Keep moving: 30 s per move' : s.note) : s.kind === 'pose' ? s.label : s.note || '';
+        : s.kind === 'block' ? (s.moves ? 'Keep moving: 30 s per move' : s.note) : s.kind === 'pose' ? s.label + (s.note ? ' · ' + s.note : '') : s.note || '';
       const nx = steps[st.i + 1];
-      el.next.textContent = nx ? 'Then: ' + (nx.kind === 'block' ? 'Block ' + nx.block : nx.kind === 'recovery' ? (nx.label) : nx.kind === 'break' ? 'Break ' + nx.sec + 's' : nx.kind === 'rest' ? 'Set rest ' + nx.sec + 's' : nx.kind === 'transition' ? 'next pose' : nm(nx.ex || nx.dr)) : 'Last one';
+      el.next.textContent = nx ? 'Then: ' + (nx.kind === 'block' && nx.short ? 'Fast, rep ' + nx.rep : nx.kind === 'ease' ? 'Easy 15 s' : nx.kind === 'block' ? 'Block ' + nx.block : nx.kind === 'recovery' ? (nx.label) : nx.kind === 'break' ? 'Break ' + nx.sec + 's' : nx.kind === 'rest' ? 'Set rest ' + nx.sec + 's' : nx.kind === 'transition' ? 'next pose' : nm(nx.ex || nx.dr)) : 'Last one';
       drawExtra(s);
     }
     const rem = Math.max(0, st.remaining);
@@ -3779,7 +4012,7 @@ function runTimed(f, r, steps, opt) {
       if (s.kind === 'block') el.extra.append(h('div', { class: 'hr-target' }, ic('heart'), hr ? h('span', {}, 'Target ', h('b', {}, hr[0] + '–' + hr[1]), ' bpm') : h('span', {}, 'Aim for 90–95% of max HR')));
       else {
         const b = draft.blocks[s.block - 1] = draft.blocks[s.block - 1] || {};
-        el.extra.append(h('div', { class: 'blk-in' }, h('div', { class: 'muted sm' }, 'Block ' + s.block + ' heart rate (from your watch)'),
+        el.extra.append(h('div', { class: 'blk-in' }, h('div', { class: 'muted sm' }, (s.short ? 'Set ' : 'Block ') + s.block + ' heart rate (from your watch)'),
           h('div', { class: 'grid2' }, field('Avg', numInput(b.avg, { inputmode: 'numeric', oninput: e => { b.avg = +e.target.value || null; save(); } })), field('Max', numInput(b.max, { inputmode: 'numeric', oninput: e => { b.max = +e.target.value || null; save(); } })))));
       }
     } else if (s.kind === 'drill') {
@@ -3802,6 +4035,7 @@ function runTimed(f, r, steps, opt) {
     else if (s.kind === 'pose' || s.kind === 'drill' || s.kind === 'warmup' || s.kind === 'z2' || s.kind === 'jog') SOUND.beep(880, 0.25, 0.35);
     else SOUND.beep(523, 0.3, 0.35);
     const say = s.kind === 'work' ? nm(s.ex) : s.kind === 'break' ? 'Rest. Next, ' + nm(s.ex) : s.kind === 'rest' ? 'Set rest. ' + s.sec + ' seconds'
+      : s.kind === 'block' && s.short ? (s.rep === 1 ? 'Set ' + s.block + '. Go' : s.rep === s.reps ? 'Last one' : 'Go') : s.kind === 'ease' ? 'Easy'
       : s.kind === 'block' ? 'Block ' + s.block + '. ' + (s.moves ? nm(s.moves[0]) : 'Go') : s.kind === 'recovery' ? (s.label === 'Cool down' ? 'Cool down. Great work' : 'Recover. Log your heart rate')
       : s.kind === 'pose' ? nm(s.ex) + (s.label !== 'Hold' ? ', ' + s.label : '') : s.kind === 'drill' ? nm(s.dr || s.ex) : s.kind === 'warmup' ? nm(s.ex) : s.kind === 'transition' ? 'Next, ' + nm(s.ex) : s.kind === 'prep' ? 'Get ready' : s.kind === 'jog' ? s.label : '';
     if (say) SOUND.say(say);
@@ -4033,8 +4267,8 @@ function viewLog(iid) {
       field('Distance (km)', numInput(v.dist, { oninput: e => v.dist = +e.target.value || null })),
       field('Time in Zone 2 (min)', numInput(v.z2min, { inputmode: 'numeric', oninput: e => v.z2min = e.target.value === '' ? null : +e.target.value }))));
     if (r.type === 'intervals') {
-      box.append(h('div', { class: 'f-label' }, '4×4 block heart rate'));
-      for (let b = 0; b < r.blocks; b++) { const bb = v.blocks[b] = v.blocks[b] || {}; box.append(h('div', { class: 'grid3 blk' }, h('span', { class: 'blk-n' }, 'Block ' + (b + 1)), numInput(bb.avg, { inputmode: 'numeric', placeholder: 'avg', oninput: e => bb.avg = +e.target.value || null }), numInput(bb.max, { inputmode: 'numeric', placeholder: 'max', oninput: e => bb.max = +e.target.value || null }))); }
+      box.append(h('div', { class: 'f-label' }, r.mode === 'short' ? 'Heart rate per set' : '4×4 block heart rate'));
+      for (let b = 0; b < r.blocks; b++) { const bb = v.blocks[b] = v.blocks[b] || {}; box.append(h('div', { class: 'grid3 blk' }, h('span', { class: 'blk-n' }, (r.mode === 'short' ? 'Set ' : 'Block ') + (b + 1)), numInput(bb.avg, { inputmode: 'numeric', placeholder: 'avg', oninput: e => bb.avg = +e.target.value || null }), numInput(bb.max, { inputmode: 'numeric', placeholder: 'max', oninput: e => bb.max = +e.target.value || null }))); }
     }
     if (r.type === 'football') {
       const scored = r.items.filter(it => it.dr && drOf(it.dr) && drOf(it.dr).score).map(it => it.dr).filter((x, i, a) => a.indexOf(x) === i);
