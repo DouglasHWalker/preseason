@@ -1,5 +1,5 @@
 /* Preseason service worker: offline cache, stale-while-revalidate */
-const CACHE = 'preseason-20261121-1850';
+const CACHE = 'preseason-20261121-2014';
 const ASSETS = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS))); });
 self.addEventListener('activate', e => {

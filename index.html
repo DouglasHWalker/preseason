@@ -19,7 +19,7 @@
   --bg: #0b0f14; --s1: #121922; --s2: #19222d; --s3: #222c38; --line: #263140;
   --tx: #f2f5f7; --tx2: #a9b4c0; --tx3: #758291;
   --acc: #c6ff3d; --acc2: #6f8f1f; --ink: #0b0f14; --danger: #ff5a5f;
-  --c-strength: #ff8a3d; --c-circuit: #ff4d6d; --c-intervals: #e46cff; --c-football: #34d399; --c-yoga: #a78bfa; --c-zone2: #38bdf8; --c-test: #facc15;
+  --c-strength: #ff8a3d; --c-circuit: #ff4d6d; --c-intervals: #e46cff; --c-football: #34d399; --c-yoga: #a78bfa; --c-zone2: #38bdf8; --c-test: #facc15; --c-team: #e2e8f0; --c1: #3987e5;
   --r: 16px;
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
@@ -31,7 +31,7 @@ a { color: var(--acc); }
 :focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
 .hidden { display: none !important; }
 .t-strength { --tc: var(--c-strength); } .t-circuit { --tc: var(--c-circuit); } .t-intervals { --tc: var(--c-intervals); }
-.t-football { --tc: var(--c-football); } .t-yoga { --tc: var(--c-yoga); } .t-zone2 { --tc: var(--c-zone2); } .t-test { --tc: var(--c-test); }
+.t-football { --tc: var(--c-football); } .t-yoga { --tc: var(--c-yoga); } .t-zone2 { --tc: var(--c-zone2); } .t-test { --tc: var(--c-test); } .t-team { --tc: var(--c-team); }
 
 /* shell */
 .topbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 10px;
@@ -44,7 +44,7 @@ a { color: var(--acc); }
 .tb-meas.due { background: var(--acc); color: var(--ink); border-color: var(--acc); }
 .tb-meas.due .ic svg { color: var(--ink); }
 #view { max-width: 640px; margin: 0 auto; padding: 12px 16px calc(92px + env(safe-area-inset-bottom)); }
-.nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: repeat(5, 1fr); background: rgba(18, 25, 34, .95); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
+.nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: grid; grid-template-columns: repeat(6, 1fr); background: rgba(18, 25, 34, .95); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
 .nav-btn { background: none; border: 0; color: var(--tx3); display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 9px 0 7px; font: 700 11px var(--font); }
 .nav-btn .ic svg { width: 23px; height: 23px; }
 .nav-btn.on { color: var(--acc); }
@@ -221,7 +221,7 @@ svg.anatomy { width: 100%; height: auto; display: block; }
 .cues li { margin: 6px 0; }
 .cues.sm li { font-size: 14px; margin: 3px 0; }
 .harder { margin-top: 12px; padding: 10px 12px; border-radius: 12px; background: rgba(198, 255, 61, .08); font-size: 14px; }
-.link-row { display: flex; align-items: center; gap: 10px; padding: 13px 0; color: var(--tx); text-decoration: none; border-top: 1px solid var(--line); }
+.link-row { display: flex; align-items: center; gap: 10px; padding: 13px 0; color: var(--tx); text-decoration: none; border: 0; border-top: 1px solid var(--line); background: none; width: 100%; text-align: left; font: inherit; }
 .link-row:first-of-type { border-top: 0; }
 .link-row span:not(.ic) { flex: 1; }
 .link-row .ic svg { color: var(--acc); }
@@ -402,12 +402,48 @@ body.running .toast { bottom: calc(24px + env(safe-area-inset-bottom)); }
 .onboard .hero h1 { font-size: 30px; }
 @media (min-width: 700px) { .run-visual { height: 38vh; } }
 
+/* diet */
+.diet-strip { width: 100%; text-align: left; color: var(--tx); display: block; }
+.ds-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+.ds-row b { font-size: 20px; font-variant-numeric: tabular-nums; }
+.ds-row small { color: var(--tx2); }
+.diet-strip .bar, .eb .bar { height: 8px; background: var(--s2); border-radius: 999px; overflow: hidden; }
+.diet-strip .bar i, .eb .bar i { display: block; height: 100%; background: var(--acc); border-radius: 999px; }
+.card-title .ic svg { width: 16px; height: 16px; }
+.tg-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.tg { background: var(--s2); border-radius: 12px; padding: 10px 6px; text-align: center; }
+.tg-v { font-size: 22px; font-weight: 850; font-variant-numeric: tabular-nums; }
+.tg:first-child .tg-v { color: var(--acc); }
+.tg-l { font-size: 11px; color: var(--tx2); font-weight: 700; }
+.eat-bars { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+.eb span { font-size: 13px; color: var(--tx2); display: block; margin-bottom: 4px; }
+.eb b { color: var(--tx); }
+.why { margin-top: 10px; }
+.why summary { font-size: 13px; color: var(--acc); cursor: pointer; font-weight: 700; }
+.why div { margin-top: 6px; }
+.meal-row { display: flex; align-items: center; gap: 10px; background: var(--s1); border: 1px solid var(--line); border-radius: 14px; padding: 8px 10px; margin-top: 8px; }
+.meal-row .tick { width: 46px; flex: none; }
+.meal-row > .ic { color: var(--tx3); }
+.meal-row.done { border-color: rgba(198, 255, 61, .35); }
+.meal-main { flex: 1; min-width: 0; background: none; border: 0; color: var(--tx); text-align: left; padding: 2px 0; }
+.meal-slot { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--tx3); }
+.meal-name { font-size: 15px; font-weight: 750; line-height: 1.25; }
+.meal-meta { font-size: 12px; color: var(--tx2); margin-top: 2px; }
+.ok-txt { color: var(--acc); font-weight: 700; margin: 6px 0; }
+.shop-row { display: flex; align-items: center; gap: 10px; padding: 9px 2px; border-bottom: 1px solid var(--line); font-size: 15px; }
+.shop-row input { width: 22px; height: 22px; min-height: 0; flex: none; accent-color: var(--acc); -webkit-appearance: checkbox; appearance: auto; padding: 0; }
+.shop-row span { flex: 1; }
+.shop-row b { font-variant-numeric: tabular-nums; color: var(--tx2); font-weight: 700; font-size: 14px; }
+.shop-row.on span, .shop-row.on b { text-decoration: line-through; color: var(--tx3); }
+.nav-btn { font-size: 10.5px; }
+.nav-btn .ic svg { width: 22px; height: 22px; }
+
 </style>
 </head>
 <body>
 <noscript>Turn on JavaScript to use Preseason.</noscript>
 <script>
-/* Preseason v20261121-1850 */
+/* Preseason v20261121-2014 */
 /* ---------- shared animation loop ---------- */
 const ANIM = (() => {
   const set = new Set(); let running = false;
@@ -822,6 +858,20 @@ dr('f34', {
   steps: [{ p: [150, 12], b: [156, 13], d: 1500, h: 0 }, { b: [176, 62], d: 950, lob: 1.4, L: 1, h: 300 }, { p: [40, 12], f: 180, d: 1700, h: 200 }, { reset: 1, b: [42, 13], h: 100 }]
 });
 
+/* ---- 4×4 dribbling track (McMillan et al. 2005 style) ---- */
+dr('f35', {
+  n: '4×4 dribbling track', cat: 'Wing-back conditioning',
+  cues: ['Lay out a loop of about 50–60 m: a cone slalom on one side, a straight on the other', 'Dribble at a pace that gets your heart rate to 90–95% of max by minute 2–3', 'Left foot only through the slalom; both feet on the straight if you need to', '4 min hard, then 3 min easy jog or walk with the ball'],
+  setup: {
+    player: [24, 92], ball: [30, 92],
+    cones: [[50, 92], [66, 92], [82, 92], [98, 92], [114, 92], [130, 92], [176, 96], [176, 26], [24, 26]],
+    labels: [{ x: 90, y: 108, t: 'left-foot slalom' }, { x: 100, y: 20, t: 'straight: drive with pace' }],
+    dims: [{ a: [24, 114], b: [176, 114], t: '~25 m' }]
+  },
+  steps: [[58, 86], [74, 98], [90, 86], [106, 98], [122, 86], [140, 94], [166, 90]].map(pt => ({ p: [pt[0] - 6, pt[1]], b: pt, d: 330, L: 1, h: 0 }))
+    .concat([{ p: [168, 50], b: [168, 44], d: 600, h: 0 }, { p: [160, 30], b: [154, 30], d: 380, L: 1, h: 0 }, { p: [40, 30], b: [34, 30], d: 1300, h: 0 }, { p: [28, 70], b: [28, 76], d: 650, L: 1, h: 0 }, { p: [24, 92], b: [30, 92], d: 380, h: 0 }])
+});
+
 /* ============================================================
    ANATOMY — front/back muscle map (SVG), highlights muscles
    ============================================================ */
@@ -1123,7 +1173,7 @@ ex('tuck-jump', {
   cues: ['Small dip, then jump straight up', 'Pull your knees up to your chest', 'Land softly and go again']
 });
 ex('box-jump', {
-  n: 'Box jump', g: 'plyo', pg: 138, src: BOOK, eq: ['box'], fromWk: 3, sub: 'squat-jump',
+  n: 'Box jump', g: 'plyo', pg: 138, src: BOOK, eq: ['box'],
   cues: ['Stand about a foot from the box', 'Swing your arms, jump up and land softly in a squat', 'Stand tall on top, then step down (don\'t jump down)']
 });
 ex('single-leg-forward-jump', {
@@ -1171,6 +1221,10 @@ ex('a-skip', {
 ex('cool-down', {
   n: 'Cool down', g: 'warmup', src: ADDED, eq: [],
   cues: ['Walk for a minute to bring your heart rate down', 'Then easy hamstring, hip-flexor and calf stretches', '20–30 s each side']
+});
+ex('interval-run', {
+  n: 'Interval running (hill or flat)', g: 'cardio', src: ADDED, eq: [],
+  cues: ['4 minutes hard: 90–95% of max heart rate by minute 2–3', 'Hard but controlled, not a sprint: you could say a few words, not sentences', 'A gentle hill gets your heart rate up with less pounding', '3 minutes easy jog between blocks']
 });
 ex('easy-run', {
   n: 'Easy run / ride', g: 'cardio', src: ADDED, eq: [],
@@ -1308,7 +1362,7 @@ const MUSCLE_MAP = {
   'burpee': ['quads chest', 'shoulders triceps abs glutes'], 'bear-crawl': ['shoulders abs', 'quads hipflex triceps'],
   'jog-on-spot': ['calves quads', 'hipflex'], 'leg-swings': ['hamstrings hipflex', 'glutes'], 'leg-swings-side': ['adductors', 'glutes'],
   'inchworm': ['hamstrings abs', 'shoulders calves'], 'worlds-greatest-stretch': ['hipflex adductors', 'hamstrings upperback glutes'],
-  'a-skip': ['hipflex calves', 'quads glutes'], 'easy-run': ['quads calves', 'glutes hamstrings hipflex'], 'cool-down': ['hamstrings hipflex', 'calves quads'],
+  'a-skip': ['hipflex calves', 'quads glutes'], 'easy-run': ['quads calves', 'glutes hamstrings hipflex'], 'interval-run': ['quads calves hipflex', 'glutes hamstrings'], 'cool-down': ['hamstrings hipflex', 'calves quads'],
   'cat-cow': ['lowback abs', 'upperback'], 'down-dog': ['hamstrings calves', 'shoulders lats'], 'low-lunge': ['hipflex quads', 'abs'],
   'lizard': ['hipflex adductors', 'hamstrings glutes'], 'half-splits': ['hamstrings', 'calves lowback'], 'pigeon': ['glutes', 'hipflex lowback'],
   'hip-90-90': ['glutes adductors', 'hipflex'], 'frog': ['adductors', 'hipflex lowback'], 'butterfly': ['adductors', 'lowback'],
@@ -1326,16 +1380,19 @@ Object.keys(MUSCLE_MAP).forEach(id => {
 });
 
 /* ============================================================
-   SESSION TEMPLATES & 12-WEEK PLAN
+   SESSION TEMPLATES & 12-WEEK PLAN (v2, evidence-based)
+   Phase 1 (weeks 1–7): solo build. Phase 2 (weeks 8–12): around
+   team training (Tue/Thu) and Saturday games.
    ============================================================ */
 const TYPES = {
   strength: { label: 'Strength', cls: 't-strength' },
-  circuit: { label: 'HIIT circuit', cls: 't-circuit' },
   intervals: { label: '4×4 VO2', cls: 't-intervals' },
   football: { label: 'Football', cls: 't-football' },
+  team: { label: 'Team', cls: 't-team' },
+  zone2: { label: 'Easy run', cls: 't-zone2' },
   yoga: { label: 'Yoga', cls: 't-yoga' },
-  zone2: { label: 'Zone 2', cls: 't-zone2' },
-  test: { label: 'VO2 test', cls: 't-test' }
+  test: { label: 'VO2 test', cls: 't-test' },
+  circuit: { label: 'HIIT circuit', cls: 't-circuit' }
 };
 
 const WARMUP = [
@@ -1345,143 +1402,136 @@ const WARMUP = [
 ];
 
 const TPL = {
-  S1: {
-    n: 'Lower Body Strength A', type: 'strength', warmup: true,
-    desc: 'Deadlift, Bulgarian split squat, hip thrust + hamstring/groin injury prevention',
+  SA: {
+    n: 'Strength A', type: 'strength', warmup: true,
+    desc: 'Deadlift, split squat, weighted pull-ups, floor press + Nordic curls',
     items: [
-      { ex: 'box-jump', sets: 3, reps: '4', rest: 90, note: 'Power primer: full effort, full rest' },
-      { ex: 'bb-deadlift', sets: 4, reps: '4-6', rest: 180 },
+      { ex: 'box-jump', sets: 3, reps: '3', rest: 120, note: 'Power primer from the book: full effort, full rest' },
+      { ex: 'bb-deadlift', sets: 3, reps: '4-6', rest: 180 },
       { ex: 'bulgarian-split-squat', sets: 3, reps: '6-10', rest: 120 },
-      { ex: 'bb-hip-thrust', sets: 3, reps: '6-10', rest: 120 },
-      { ex: 'single-leg-deadlift', sets: 2, reps: '8', rest: 90 },
-      { ex: 'nordic-curl', sets: 2, reps: '3-6', rest: 120 },
-      { ex: 'copenhagen-plank', sets: 2, reps: '20-30', rest: 60 },
-      { ex: 'calf-raise', sets: 3, reps: '10-15', rest: 60 }
+      { ex: 'pull-up', sets: 3, reps: '4-8', rest: 150, alts: ['ring-row'] },
+      { ex: 'bb-floor-press', sets: 3, reps: '6-10', rest: 120, alts: ['push-up', 'db-bench-press'] },
+      { ex: 'nordic-curl', sets: 2, reps: '3-6', rest: 120 }
     ]
   },
-  S1b: {
-    n: 'Lower Body Strength B', type: 'strength', warmup: true,
-    desc: 'Clean, front squat, RDL, step-ups + injury prevention',
+  SB: {
+    n: 'Strength B', type: 'strength', warmup: true,
+    desc: 'Squat, hip thrust, ring rows, overhead press + Copenhagen planks',
     items: [
-      { ex: 'hang-power-clean', sets: 3, reps: '3', rest: 120, note: 'Power primer: crisp, fast reps' },
-      { ex: 'bb-front-squat', sets: 4, reps: '5-8', rest: 180, alts: ['squat'] },
-      { ex: 'bb-rdl', sets: 3, reps: '6-10', rest: 150 },
-      { ex: 'step-up', sets: 3, reps: '8', rest: 90 },
-      { ex: 'lateral-lunge', sets: 2, reps: '8', rest: 90 },
-      { ex: 'nordic-curl', sets: 2, reps: '3-6', rest: 120 },
-      { ex: 'copenhagen-plank', sets: 2, reps: '20-30', rest: 60 }
-    ]
-  },
-  S2: {
-    n: 'Upper Body Strength', type: 'strength', warmup: true,
-    desc: 'Weighted pull-ups, floor press, rows, overhead press',
-    items: [
-      { ex: 'pull-up', sets: 4, reps: '4-8', rest: 150 },
-      { ex: 'bb-floor-press', sets: 4, reps: '5-8', rest: 150 },
-      { ex: 'bb-row', sets: 3, reps: '6-10', rest: 120 },
+      { ex: 'skater', sets: 3, reps: '4', rest: 90, note: 'Power primer from the book: stick each landing' },
+      { ex: 'squat', sets: 3, reps: '8-12', rest: 120, alts: ['bb-front-squat'] },
+      { ex: 'bb-hip-thrust', sets: 3, reps: '8-12', rest: 120 },
+      { ex: 'ring-row', sets: 3, reps: '8-12', rest: 90, alts: ['bb-row', 'db-row'] },
       { ex: 'military-press', sets: 3, reps: '6-10', rest: 120 },
-      { ex: 'db-bench-press', sets: 2, reps: '8-12', rest: 90, alts: ['push-up'] },
-      { ex: 'db-row', sets: 2, reps: '8-12', rest: 90, alts: ['ring-row'] },
-      { ex: 'face-pull', sets: 2, reps: '12-15', rest: 60, alts: ['db-rear-delt-fly'] }
+      { ex: 'copenhagen-plank', sets: 2, reps: '20-30', rest: 60 },
+      { ex: 'calf-raise', sets: 2, reps: '10-15', rest: 60 }
     ]
   },
-  C1: {
-    n: 'Lower Body Power circuit', type: 'circuit', warmup: true, work: 45, brk: 15, setRest: 45,
-    desc: 'Jumps, bounds and explosive lower-body work',
-    items: [{ ex: 'squat-jump' }, { ex: 'skater' }, { ex: 'alternating-snatch' }, { ex: 'single-leg-forward-jump', sub: 'lateral-lunge' }, { ex: 'crab-walk' }, { ex: 'alternating-toe-tap' }, { ex: 'tuck-jump', sub: 'high-knee' }]
+  VR: {
+    n: '4×4 running intervals', type: 'intervals', mode: 'run', warmup: false, work: 240, rec: 180, hrLo: 0.90, hrHi: 0.95,
+    desc: '4 min at 90–95% max HR, 3 min easy jog. Hill or flat. The protocol that raised VO2 max ~11% in footballers'
   },
-  C2: {
-    n: 'Full Body VO2 circuit', type: 'circuit', warmup: true, work: 45, brk: 15, setRest: 45,
-    desc: 'High heart-rate full-body conditioning',
-    items: [{ ex: 'burpee' }, { ex: 'high-knee' }, { ex: 'football-up-down' }, { ex: 'mountain-climber' }, { ex: 'skater' }, { ex: 'bear-crawl' }]
+  VB: {
+    n: '4×4 dribbling intervals', type: 'intervals', mode: 'dribble', warmup: false, work: 240, rec: 180, hrLo: 0.90, hrHi: 0.95,
+    desc: 'Same 4×4 at 90–95% max HR, dribbling a cone track with the left foot. Engine and touch in one session'
   },
-  C3: {
-    n: 'Core circuit', type: 'circuit', warmup: true, work: 45, brk: 15, setRest: 45,
-    desc: 'Anti-extension and anti-rotation core',
-    items: [{ ex: 'high-low-plank' }, { ex: 'swim-plank' }, { ex: 'mountain-climber' }, { ex: 'bear-plank' }, { ex: 'v-up' }, { ex: 'side-plank' }]
-  },
-  C4: {
-    n: 'Full Body Mixed circuit', type: 'circuit', warmup: true, work: 45, brk: 15, setRest: 45,
-    desc: 'Mixed power, strength and conditioning',
-    items: [{ ex: 'alternating-snatch' }, { ex: 'squat-jump' }, { ex: 'push-up' }, { ex: 'single-leg-deadlift' }, { ex: 'burpee' }, { ex: 'lateral-lunge' }, { ex: 'mountain-climber' }]
-  },
-  V1: {
-    n: '4×4 VO2 max intervals', type: 'intervals', warmup: true, work: 240, rec: 240, moveSec: 30, hrLo: 0.90, hrHi: 0.95,
-    desc: '4 min at 90–95% max HR, 4 min easy. The strongest evidence for raising VO2 max in footballers',
-    moves: ['high-knee', 'burpee', 'skater', 'football-up-down', 'mountain-climber', 'step-up', 'bear-crawl', 'high-knee'], recEx: 'jog-on-spot'
+  FIN: {
+    n: 'Left-foot finishing', type: 'football', desc: '10 min of finishing straight after the dribbling 4×4s',
+    items: [{ dr: 'f32', min: 5, part: 'Finishing' }, { dr: 'f29', min: 5, part: 'Finishing' }]
   },
   F1A: {
-    n: 'Football: Foundations A', type: 'football', desc: 'Left-foot striking technique and first touch',
+    n: 'Skills: Foundations A', type: 'football', desc: 'Left-foot striking technique and first touch',
     items: [{ dr: 'f1', min: 4, part: 'Ball mastery' }, { dr: 'f2', min: 4, part: 'Ball mastery' }, { dr: 'f6', min: 6, part: 'Technique' }, { dr: 'f7', min: 6, part: 'Technique' }, { dr: 'f9', min: 9, part: 'Game-like' }, { dr: 'f14', min: 8, part: 'Game-like' }, { dr: 'f8', min: 6, part: 'Challenge' }, { ex: 'cool-down', min: 2, part: 'Cool down' }]
   },
   F1B: {
-    n: 'Football: Foundations B', type: 'football', desc: 'Ball mastery, one-touch passing, receiving',
+    n: 'Skills: Foundations B', type: 'football', desc: 'Ball mastery, one-touch passing, receiving',
     items: [{ dr: 'f3', min: 4, part: 'Ball mastery' }, { dr: 'f5', min: 4, part: 'Ball mastery' }, { dr: 'f6', min: 6, part: 'Technique' }, { dr: 'f10', min: 6, part: 'Technique' }, { dr: 'f15', min: 9, part: 'Game-like' }, { dr: 'f12', min: 8, part: 'Game-like' }, { dr: 'f17', min: 6, part: 'Challenge' }, { ex: 'cool-down', min: 2, part: 'Cool down' }]
   },
   F2A: {
-    n: 'Football: Range & Crossing A', type: 'football', desc: 'Driven passes, switches and crossing',
+    n: 'Skills: Range & Crossing A', type: 'football', desc: 'Driven passes, switches and crossing',
     items: [{ dr: 'f4', min: 8, part: 'Ball mastery' }, { dr: 'f19', min: 6, part: 'Technique' }, { dr: 'f20', min: 6, part: 'Technique' }, { dr: 'f23', min: 9, part: 'Game-like' }, { dr: 'f24', min: 8, part: 'Game-like' }, { dr: 'f20', min: 6, part: 'Challenge' }, { ex: 'cool-down', min: 2, part: 'Cool down' }]
   },
   F2B: {
-    n: 'Football: Range & Crossing B', type: 'football', desc: 'Aerial control, long balls, overlaps and cut-backs',
+    n: 'Skills: Range & Crossing B', type: 'football', desc: 'Aerial control, long balls, overlaps and cut-backs',
     items: [{ dr: 'f2', min: 8, part: 'Ball mastery' }, { dr: 'f16', min: 6, part: 'Technique' }, { dr: 'f22', min: 6, part: 'Technique' }, { dr: 'f25', min: 9, part: 'Game-like' }, { dr: 'f26', min: 8, part: 'Game-like' }, { dr: 'f23', min: 6, part: 'Challenge' }, { ex: 'cool-down', min: 2, part: 'Cool down' }]
   },
   F3A: {
-    n: 'Football: Game Speed A', type: 'football', desc: 'Finishing in play with the left',
+    n: 'Skills: Game Speed A', type: 'football', desc: 'Finishing in play with the left',
     items: [{ dr: 'f5', min: 8, part: 'Ball mastery' }, { dr: 'f11', min: 6, part: 'Technique' }, { dr: 'f25', min: 6, part: 'Technique' }, { dr: 'f28', min: 9, part: 'Game-like' }, { dr: 'f29', min: 8, part: 'Game-like' }, { dr: 'f32', min: 6, part: 'Challenge' }, { ex: 'cool-down', min: 2, part: 'Cool down' }]
   },
   F3B: {
-    n: 'Football: Game Speed B', type: 'football', desc: 'Crossing and finishing at game speed + wing-back runs',
+    n: 'Skills: Game Speed B', type: 'football', desc: 'Crossing and finishing at game speed + wing-back runs',
     items: [{ dr: 'f4', min: 8, part: 'Ball mastery' }, { dr: 'f18', min: 6, part: 'Technique' }, { dr: 'f27', min: 6, part: 'Technique' }, { dr: 'f30', min: 9, part: 'Game-like' }, { dr: 'f31', min: 8, part: 'Game-like' }, { dr: 'f33', min: 6, part: 'Challenge' }, { ex: 'cool-down', min: 2, part: 'Cool down' }]
   },
   YA: {
-    n: 'Yoga: Hips & Groin', type: 'yoga', desc: '10–12 min daily mobility',
-    items: [{ ex: 'cat-cow', sec: 60 }, { ex: 'low-lunge', sec: 60, sides: 2 }, { ex: 'lizard', sec: 60, sides: 2 }, { ex: 'frog', sec: 90 }, { ex: 'butterfly', sec: 60 }, { ex: 'malasana', sec: 60 }, { ex: 'childs-pose', sec: 60 }]
+    n: 'Morning yoga: Hips & Groin', type: 'yoga', morning: true, desc: '10–12 min before work',
+    items: [{ ex: 'cat-cow', sec: 60 }, { ex: 'low-lunge', sec: 45, sides: 2 }, { ex: 'lizard', sec: 45, sides: 2 }, { ex: 'frog', sec: 60 }, { ex: 'butterfly', sec: 60 }, { ex: 'malasana', sec: 45 }, { ex: 'childs-pose', sec: 45 }]
   },
   YB: {
-    n: 'Yoga: Hamstrings & Lower Back', type: 'yoga', desc: '10–12 min daily mobility',
-    items: [{ ex: 'cat-cow', sec: 60 }, { ex: 'down-dog', sec: 60 }, { ex: 'half-splits', sec: 60, sides: 2 }, { ex: 'supine-hamstring', sec: 60, sides: 2 }, { ex: 'wide-fold', sec: 60 }, { ex: 'supine-twist', sec: 60, sides: 2 }, { ex: 'happy-baby', sec: 60 }]
+    n: 'Morning yoga: Hamstrings & Back', type: 'yoga', morning: true, desc: '10–12 min before work',
+    items: [{ ex: 'cat-cow', sec: 60 }, { ex: 'down-dog', sec: 60 }, { ex: 'half-splits', sec: 45, sides: 2 }, { ex: 'supine-hamstring', sec: 45, sides: 2 }, { ex: 'wide-fold', sec: 45 }, { ex: 'supine-twist', sec: 45, sides: 2 }, { ex: 'happy-baby', sec: 45 }]
   },
   YC: {
-    n: 'Yoga: Post-session Recovery', type: 'yoga', desc: '12 min after hard sessions',
-    items: [{ ex: 'worlds-greatest-stretch', sec: 45, sides: 2 }, { ex: 'couch-stretch', sec: 60, sides: 2 }, { ex: 'pigeon', sec: 60, sides: 2 }, { ex: 'figure-4', sec: 45, sides: 2 }, { ex: 'bridge-pose', sec: 45 }, { ex: 'supine-twist', sec: 45, sides: 2 }, { ex: 'legs-up-wall', sec: 90 }]
+    n: 'Morning yoga: Recovery', type: 'yoga', morning: true, desc: '10–12 min before work',
+    items: [{ ex: 'worlds-greatest-stretch', sec: 40, sides: 2 }, { ex: 'couch-stretch', sec: 45, sides: 2 }, { ex: 'pigeon', sec: 45, sides: 2 }, { ex: 'figure-4', sec: 40, sides: 2 }, { ex: 'bridge-pose', sec: 40 }, { ex: 'legs-up-wall', sec: 60 }]
   },
   YD: {
-    n: 'Yoga: Weekly Recovery Flow', type: 'yoga', desc: '30 min full-body flow',
+    n: 'Yoga: Long Recovery Flow', type: 'yoga', desc: 'Optional 30 min flow for rest days',
     items: [{ ex: 'cat-cow', sec: 90 }, { ex: 'down-dog', sec: 60 }, { ex: 'low-lunge', sec: 60, sides: 2 }, { ex: 'lizard', sec: 60, sides: 2 }, { ex: 'half-splits', sec: 60, sides: 2 }, { ex: 'worlds-greatest-stretch', sec: 45, sides: 2 }, { ex: 'cossack-squat', sec: 60 }, { ex: 'hip-90-90', sec: 60 }, { ex: 'pigeon', sec: 90, sides: 2 }, { ex: 'frog', sec: 90 }, { ex: 'butterfly', sec: 60 }, { ex: 'sphinx-cobra', sec: 60 }, { ex: 'bridge-pose', sec: 60 }, { ex: 'happy-baby', sec: 60 }, { ex: 'quad-stretch', sec: 45, sides: 2 }, { ex: 'supine-twist', sec: 60, sides: 2 }, { ex: 'dead-hang', sec: 45 }, { ex: 'legs-up-wall', sec: 120 }]
   },
-  Z2: { n: 'Zone 2 (run or ride)', type: 'zone2', min: 60, hrLo: 0.60, hrHi: 0.70, desc: 'Easy aerobic base. Commute rides count when HR stays in zone' },
-  Z2L: { n: 'Zone 2 long', type: 'zone2', long: true, hrLo: 0.60, hrHi: 0.70, desc: 'Builds towards 2-hour game endurance' },
+  LR: { n: 'Long easy run', type: 'zone2', long: true, hrLo: 0.60, hrHi: 0.70, desc: 'Conversational pace. Running-specific endurance for 2-hour games' },
+  RR: { n: 'Recovery run', type: 'zone2', min: 40, hrLo: 0.60, hrHi: 0.70, desc: 'Easy 30–45 min the day after a game, or rest' },
+  Z2: { n: 'Easy run or ride', type: 'zone2', min: 45, hrLo: 0.60, hrHi: 0.70, desc: 'Extra easy aerobic work if you want it' },
+  TEAM: { n: 'Team training', type: 'team', min: 120, desc: 'Log it afterwards: minutes, RPE and heart rate' },
+  GAME: { n: 'Game / practice match', type: 'team', min: 90, game: true, desc: 'Log minutes played, RPE and heart rate' },
   TEST: { n: 'VO2 max test', type: 'test', desc: 'Cooper 12-minute run or 20 m beep test' }
 };
 
 /* ---------- week rules ---------- */
-const PHASES = { 1: 'Build', 2: 'Build', 3: 'Build', 4: 'Deload', 5: 'Load', 6: 'Load', 7: 'Load', 8: 'Deload', 9: 'Peak', 10: 'Peak', 11: 'Peak', 12: 'Taper & test' };
-const FB_PHASE = ['', 'Foundations', 'Range & crossing', 'Game speed'];
+const PHASES = { 1: 'Intro', 2: 'Intro', 3: 'Build', 4: 'Build', 5: 'Build', 6: 'Peak', 7: 'Deload & test', 8: 'Team preseason', 9: 'Team preseason', 10: 'Team preseason', 11: 'Team preseason', 12: 'Team + retest' };
+const SKILLS_BY_WEEK = { 1: 'F1A', 2: 'F1B', 3: 'F2A', 4: 'F2B', 5: 'F3A', 6: 'F3B', 7: 'F2A' };
+const LONG_RUN = { 1: 60, 2: 60, 3: 70, 4: 75, 5: 80, 6: 90, 7: 60 };
 function weekInfo(w) {
-  const fb = w <= 4 ? 1 : w <= 8 ? 2 : 3;
-  return { w, phase: PHASES[w] || '', deload: [4, 8, 12].includes(w), fb, fbName: FB_PHASE[fb], test: [1, 6, 12].includes(w) };
+  const team = w >= 8;
+  const sk = SKILLS_BY_WEEK[w];
+  return { w, phase: PHASES[w] || '', deload: w === 7, team, test: [1, 7, 12].includes(w), skills: sk, fbName: sk ? TPL[sk].n.replace('Skills: ', '') : 'Team training' };
 }
-function strengthSets(full, w) { if ([4, 8, 12].includes(w)) return Math.min(2, full); if (w <= 3) return Math.min(3, full); return full; }
-function circuitSets(w) { return w <= 3 ? 3 : [4, 8, 12].includes(w) ? 2 : 4; }
-function blockCount(w) { return w <= 2 ? 3 : [4, 8, 12].includes(w) ? 3 : 4; }
-function rpeTarget(w) { return w <= 3 ? '7' : [4, 8].includes(w) ? '6' : w <= 7 ? '8' : w <= 11 ? '8–9' : '7'; }
-function z2LongMin(w) { return w <= 4 ? 60 : w <= 8 ? 90 : w <= 10 ? 105 : w === 11 ? 120 : 75; }
+function strengthSets(full, w) { if (w === 1 || w >= 7) return Math.min(2, full); return full; }
+function circuitSets(w) { return w <= 2 ? 3 : 4; }
+function blockCount(w) { return w <= 2 ? 3 : w === 7 ? 3 : 4; }
+function rpeTarget(w) { return w <= 2 ? '7' : w <= 5 ? '8' : w === 6 ? '8–9' : w === 7 ? '7' : '8'; }
+function z2LongMin(w) { return LONG_RUN[w] || 60; }
+const MORNING_YOGA = ['YC', 'YA', 'YB', 'YC', 'YA', 'YB', 'YC'];
 
 function defaultPlan(uid) {
   const inst = (tpl, ov) => ({ id: uid(), tpl, ov: ov || {} });
   const weeks = [];
   for (let w = 1; w <= 12; w++) {
     const wi = weekInfo(w);
-    weeks.push([
-      [inst(w % 2 ? 'S1' : 'S1b'), inst('YC')],
-      [inst('F' + wi.fb + 'A'), inst('C3', { sets: 2, nowarm: true })],
-      [inst(wi.test ? 'TEST' : 'V1'), inst('YB')],
-      [inst('F' + wi.fb + 'B'), inst('YA')],
-      [inst('S2'), inst(w % 2 ? 'C1' : 'C2', { sets: 2, nowarm: true })],
-      [inst('Z2L')],
-      [inst('YD')]
-    ]);
+    const y = d => inst(MORNING_YOGA[d]);
+    let days;
+    if (!wi.team) {
+      days = [
+        [y(0), inst('SA')],
+        [y(1), inst(wi.skills)],
+        [y(2), inst(wi.test ? 'TEST' : 'VR')],
+        [y(3), inst('SB')],
+        [y(4)],
+        [y(5), inst('VB'), inst('FIN')],
+        [y(6), inst('LR')]
+      ];
+    } else {
+      days = [
+        [y(0), inst('SA')],
+        [y(1), inst('TEAM')],
+        [y(2), inst(wi.test ? 'TEST' : 'SB', wi.test ? {} : { light: true })],
+        [y(3), inst('TEAM')],
+        [y(4)],
+        [y(5), inst('GAME')],
+        [y(6), inst('RR')]
+      ];
+    }
+    weeks.push(days);
   }
   return weeks;
 }
@@ -1500,9 +1550,10 @@ const JS_DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday
 
 function defaults() {
   return {
-    v: 1,
-    settings: { start: null, age: null, maxHR: null, maxSrc: 'est', mDay: 0, mHour: 8, voice: true, beeps: true, wake: true },
-    plan: null, tpl: {}, cex: {}, logs: {}, extra: [], meas: [], drafts: {}, snooze: 0, lastBackup: 0, created: Date.now()
+    v: 2,
+    settings: { start: null, age: null, maxHR: null, maxSrc: 'est', mDay: 0, mHour: 8, voice: true, beeps: true, wake: true, height: null, weight: null, sex: 'm', commuteMin: 120 },
+    plan: null, tpl: {}, cex: {}, logs: {}, extra: [], meas: [], drafts: {}, snooze: 0, lastBackup: 0, created: Date.now(),
+    food: {}, diet: { adj: 0 }, shop: {}
   };
 }
 let S = load();
@@ -1512,6 +1563,8 @@ function load() {
     if (!raw) return defaults();
     const d = Object.assign(defaults(), JSON.parse(raw));
     d.settings = Object.assign(defaults().settings, d.settings || {});
+    d.food = d.food || {}; d.diet = d.diet || { adj: 0 }; d.shop = d.shop || {};
+    if ((d.v || 1) < 2) { d.v = 2; d.migrated = !!d.plan; }
     return d;
   } catch (e) { console.error(e); return defaults(); }
 }
@@ -1583,11 +1636,16 @@ function resolve(inst, w) {
     r.sets = ov.sets || t.sets || circuitSets(W);
     r.work = ov.work || t.work || 45; r.brk = ov.brk != null ? ov.brk : (t.brk != null ? t.brk : 15); r.setRest = ov.setRest || t.setRest || 45;
   } else if (t.type === 'intervals') {
+    r.mode = t.mode || 'hiit';
     r.blocks = ov.blocks || blockCount(W);
-    r.work = t.work || 240; r.rec = t.rec || 240; r.moveSec = t.moveSec || 30;
+    r.work = t.work || 240; r.rec = t.rec || 180; r.moveSec = t.moveSec || 30;
     r.moves = (t.moves || []).map(m => subFor(m, W));
-    r.items = r.moves.filter((m, i, a) => a.indexOf(m) === i).map(ex => ({ ex }));
+    if (r.mode === 'run') r.items = [{ ex: 'interval-run' }];
+    else if (r.mode === 'dribble') r.items = [{ dr: 'f35' }];
+    else r.items = r.moves.filter((m, i, a) => a.indexOf(m) === i).map(ex => ({ ex }));
     r.hrLo = t.hrLo || 0.9; r.hrHi = t.hrHi || 0.95;
+  } else if (t.type === 'team') {
+    r.min = ov.min || t.min || 90; r.items = [];
   } else if (t.type === 'football') {
     r.items = t.items.map((it, i) => Object.assign({}, it, swaps[i] ? Object.assign(DR[swaps[i]] ? { dr: swaps[i], ex: undefined } : { ex: swaps[i], dr: undefined }, { swapped: true, orig: it.dr || it.ex }) : {}));
   } else if (t.type === 'yoga') {
@@ -1607,7 +1665,8 @@ function estimate(r) {
   switch (r.type) {
     case 'strength': return Math.round(wu + r.items.reduce((a, it) => a + it.sets * (35 + (it.rest || 90)) * ((exOf(it.ex) || {}).uni ? 1.3 : 1), 0) / 60);
     case 'circuit': { const n = r.items.length; return Math.round(wu + (r.sets * (n * (r.work + r.brk) - r.brk + r.setRest) - r.setRest) / 60); }
-    case 'intervals': return Math.round(wu + (r.blocks * (r.work + r.rec) - r.rec + 180) / 60);
+    case 'intervals': return Math.round((r.mode === 'hiit' ? wu : 10) + (r.blocks * (r.work + r.rec) - r.rec + 180) / 60);
+    case 'team': return r.min;
     case 'football': return r.items.reduce((a, it) => a + (it.min || 0), 0);
     case 'yoga': return Math.round(r.items.reduce((a, it) => a + (it.sec || 45) * (it.sides || 1) + 5, 0) / 60);
     case 'zone2': return r.min;
@@ -1895,7 +1954,8 @@ const ICONS = {
   book: '<path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/>',
   heart: '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/>',
   bolt: '<path d="M13 3 5 14h6l-1 7 8-11h-6z"/>',
-  skip: '<path d="M5 12h14M13 6l6 6-6 6"/>'
+  skip: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  diet: '<path d="M12 7.5c-1.6-1.6-5.2-1.7-6.5 1.2-1.4 3.1.3 9 2.9 11 1.3 1 2.3.6 3.6.1 1.3.5 2.3.9 3.6-.1 2.6-2 4.3-7.9 2.9-11-1.3-2.9-4.9-2.8-6.5-1.2Z"/><path d="M12 7.5c0-2.2 1.1-3.7 3.2-4.3"/>'
 };
 function ic(name, cls) {
   return h('span', { class: 'ic ' + (cls || ''), 'aria-hidden': 'true', html: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS[name] || ''}</svg>` });
@@ -2167,6 +2227,431 @@ const CH = (() => {
 })();
 
 /* ============================================================
+   DIET — lean-bulk targets, 2-week meal plan, shopping lists
+   Allergy: no peanuts, cashews, pistachios (or "may contain").
+   Safe nuts: almonds, hazelnuts, walnuts, macadamias.
+   kcal / protein are per portion estimates.
+   ============================================================ */
+const AISLES = ['Meat & fish', 'Dairy & eggs', 'Fruit & veg', 'Bakery', 'Frozen', 'Pantry'];
+const MEALS = {};
+function meal(id, o) { o.id = id; MEALS[id] = o; }
+
+/* ---------- batch cooks & dinners (cooked Tue / Wed / Sun) ---------- */
+meal('burrito', {
+  n: 'Chicken burrito bowls', kcal: 900, p: 48, batch: true, time: '45 min',
+  ing: [['Chicken thigh fillets', 150, 'g', 'Meat & fish'], ['White rice (uncooked)', 85, 'g', 'Pantry'], ['Black beans, 400 g can', 0.3, 'can', 'Pantry'], ['Corn kernels', 60, 'g', 'Frozen'], ['Tomato', 0.5, 'pc', 'Fruit & veg'], ['Cos lettuce', 40, 'g', 'Fruit & veg'], ['Lime', 0.25, 'pc', 'Fruit & veg'], ['Grated tasty cheese', 25, 'g', 'Dairy & eggs'], ['Tomato salsa (jar, check label)', 40, 'g', 'Pantry'], ['Taco / Mexican spice mix', 1, 'tsp', 'Pantry'], ['Olive oil', 5, 'ml', 'Pantry']],
+  steps: ['Cook the rice.', 'Toss chicken with spice mix and oil. Bake at 200 °C for 25 min (or pan-fry 6–7 min a side), then slice.', 'Warm the drained beans and corn together.', 'Portion rice, chicken, beans and corn into containers. Keeps 4 days in the fridge.', 'Add salsa, cheese, lettuce, tomato and lime when you eat it.']
+});
+meal('chilli', {
+  n: 'Beef & bean chilli with rice', kcal: 875, p: 50, batch: true, time: '40 min',
+  ing: [['Lean beef mince (5-star)', 150, 'g', 'Meat & fish'], ['Kidney beans, 400 g can', 0.3, 'can', 'Pantry'], ['Diced tomatoes, 400 g can', 0.35, 'can', 'Pantry'], ['Brown onion', 0.25, 'pc', 'Fruit & veg'], ['Red capsicum', 0.25, 'pc', 'Fruit & veg'], ['Garlic', 1, 'clove', 'Fruit & veg'], ['Chilli powder, cumin, smoked paprika', 1.5, 'tsp', 'Pantry'], ['White rice (uncooked)', 85, 'g', 'Pantry'], ['Greek yoghurt (plain)', 40, 'g', 'Dairy & eggs'], ['Grated tasty cheese', 20, 'g', 'Dairy & eggs'], ['Olive oil', 5, 'ml', 'Pantry']],
+  steps: ['Soften onion, capsicum and garlic in oil for 5 min.', 'Brown the mince, add spices for 1 min.', 'Add tomatoes and beans, simmer 20 min until thick.', 'Serve on rice with yoghurt and cheese. Portion the rest for lunches.']
+});
+meal('greek', {
+  n: 'Greek chicken & potato tray-bake', kcal: 885, p: 46, batch: true, time: '50 min (mostly oven)',
+  ing: [['Chicken thigh fillets', 160, 'g', 'Meat & fish'], ['Potatoes', 300, 'g', 'Fruit & veg'], ['Red onion', 0.25, 'pc', 'Fruit & veg'], ['Zucchini', 0.3, 'pc', 'Fruit & veg'], ['Red capsicum', 0.25, 'pc', 'Fruit & veg'], ['Lemon', 0.25, 'pc', 'Fruit & veg'], ['Dried oregano', 0.5, 'tsp', 'Pantry'], ['Olive oil', 10, 'ml', 'Pantry'], ['Tzatziki', 60, 'g', 'Dairy & eggs'], ['Pita bread', 1, 'pc', 'Bakery']],
+  steps: ['Heat oven to 210 °C. Cut potatoes into wedges, toss with oil, oregano, salt. Roast 15 min.', 'Add chicken, onion, zucchini and capsicum with lemon juice. Roast 25–30 min more.', 'Serve with tzatziki and warm pita. Portion lunches with tzatziki in a small container.']
+});
+meal('bolo', {
+  n: 'Beef bolognese pasta', kcal: 870, p: 50, batch: true, time: '35 min',
+  ing: [['Lean beef mince (5-star)', 150, 'g', 'Meat & fish'], ['Pasta (dry)', 120, 'g', 'Pantry'], ['Tomato passata', 150, 'g', 'Pantry'], ['Brown onion', 0.25, 'pc', 'Fruit & veg'], ['Carrot', 0.5, 'pc', 'Fruit & veg'], ['Garlic', 1, 'clove', 'Fruit & veg'], ['Italian herbs', 0.5, 'tsp', 'Pantry'], ['Parmesan', 15, 'g', 'Dairy & eggs'], ['Olive oil', 5, 'ml', 'Pantry']],
+  steps: ['Soften onion, grated carrot and garlic in oil.', 'Brown the mince, add passata and herbs, simmer 20 min.', 'Cook pasta, mix through, top with parmesan.', 'No pesto: many contain cashews or pistachio traces.']
+});
+meal('salmon', {
+  n: 'Salmon, crispy potatoes & greens', kcal: 880, p: 50, batch: true, time: '35 min',
+  ing: [['Salmon fillet (skin on)', 180, 'g', 'Meat & fish'], ['Potatoes', 300, 'g', 'Fruit & veg'], ['Broccolini or green beans', 150, 'g', 'Fruit & veg'], ['Lemon', 0.25, 'pc', 'Fruit & veg'], ['Greek yoghurt (plain)', 40, 'g', 'Dairy & eggs'], ['Dill (fresh or dried)', 0.5, 'tsp', 'Pantry'], ['Olive oil', 10, 'ml', 'Pantry'], ['Bread roll', 1, 'pc', 'Bakery']],
+  steps: ['Roast cubed potatoes in oil at 220 °C for 30 min.', 'Pan-fry salmon skin-side down 4 min, flip 2–3 min.', 'Steam the greens. Mix yoghurt, dill and lemon for a sauce.', 'Serve with a bread roll to hit your carbs.']
+});
+meal('noodles', {
+  n: 'Beef & broccoli noodle stir-fry', kcal: 850, p: 50, batch: true, time: '25 min',
+  allergy: 'Takeaway versions often use cashews or peanut oil. Make it at home and check the oyster sauce label.',
+  ing: [['Beef rump strips', 160, 'g', 'Meat & fish'], ['Hokkien noodles', 250, 'g', 'Pantry'], ['Broccoli', 150, 'g', 'Fruit & veg'], ['Carrot', 0.5, 'pc', 'Fruit & veg'], ['Garlic', 1, 'clove', 'Fruit & veg'], ['Ginger (paste or fresh)', 1, 'tsp', 'Fruit & veg'], ['Soy sauce', 20, 'ml', 'Pantry'], ['Oyster sauce (check label)', 15, 'ml', 'Pantry'], ['Honey', 5, 'g', 'Pantry'], ['Vegetable oil', 10, 'ml', 'Pantry'], ['Sesame seeds', 5, 'g', 'Pantry']],
+  steps: ['Mix soy, oyster sauce, honey and a splash of water.', 'Stir-fry beef in hot oil 2 min, remove.', 'Stir-fry broccoli, carrot, garlic and ginger 3 min.', 'Add noodles, beef and sauce, toss 2 min. Top with sesame seeds.']
+});
+
+/* ---------- breakfasts ---------- */
+meal('oats', {
+  n: 'Overnight oats (take to work)', kcal: 865, p: 38,
+  ing: [['Rolled oats', 80, 'g', 'Pantry'], ['Milk (full cream)', 250, 'ml', 'Dairy & eggs'], ['Greek yoghurt (plain)', 170, 'g', 'Dairy & eggs'], ['Banana', 1, 'pc', 'Fruit & veg'], ['Honey', 15, 'g', 'Pantry'], ['Almonds', 15, 'g', 'Pantry']],
+  steps: ['The night before: mix oats, milk and yoghurt in a jar.', 'At work: top with banana, honey and almonds.']
+});
+meal('toast', {
+  n: 'Protein toast + milk (at work)', kcal: 780, p: 45,
+  ing: [['Wholegrain bread', 3, 'slice', 'Bakery'], ['Eggs', 2, 'pc', 'Dairy & eggs'], ['Cottage cheese', 100, 'g', 'Dairy & eggs'], ['Avocado', 0.25, 'pc', 'Fruit & veg'], ['Tomato', 0.5, 'pc', 'Fruit & veg'], ['Milk (full cream)', 250, 'ml', 'Dairy & eggs']],
+  steps: ['Boil a batch of eggs on Sunday (keeps 5 days).', 'At work: toast, top with cottage cheese, sliced egg, avocado and tomato. Glass of milk.']
+});
+meal('smoothie', {
+  n: 'Protein smoothie + honey toast', kcal: 830, p: 47,
+  ing: [['Whey protein (nut-free facility)', 30, 'g', 'Pantry'], ['Milk (full cream)', 400, 'ml', 'Dairy & eggs'], ['Banana', 1, 'pc', 'Fruit & veg'], ['Rolled oats', 40, 'g', 'Pantry'], ['Honey', 25, 'g', 'Pantry'], ['Wholegrain bread', 1, 'slice', 'Bakery']],
+  steps: ['Blend milk, whey, banana, oats and half the honey. Take it in a bottle.', 'At work: toast with the rest of the honey.']
+});
+meal('weetbix', {
+  n: 'Wheat biscuits, yoghurt & walnuts', kcal: 765, p: 36,
+  ing: [['Wheat biscuit cereal (check label)', 4, 'pc', 'Pantry'], ['Milk (full cream)', 300, 'ml', 'Dairy & eggs'], ['Greek yoghurt (plain)', 150, 'g', 'Dairy & eggs'], ['Banana', 1, 'pc', 'Fruit & veg'], ['Walnuts', 15, 'g', 'Pantry']],
+  steps: ['Keep a box at work. Milk in the work fridge.']
+});
+meal('pancakes', {
+  n: 'Banana oat pancakes (home)', kcal: 725, p: 35,
+  ing: [['Rolled oats', 60, 'g', 'Pantry'], ['Eggs', 2, 'pc', 'Dairy & eggs'], ['Banana', 1, 'pc', 'Fruit & veg'], ['Milk (full cream)', 100, 'ml', 'Dairy & eggs'], ['Greek yoghurt (plain)', 100, 'g', 'Dairy & eggs'], ['Honey', 20, 'g', 'Pantry'], ['Frozen mixed berries', 80, 'g', 'Frozen']],
+  steps: ['Blend oats, eggs, banana and milk.', 'Cook small pancakes in a non-stick pan, 2 min a side.', 'Top with yoghurt, berries and honey.']
+});
+meal('prerun', {
+  n: 'Honey toast & banana', kcal: 330, p: 8,
+  ing: [['Wholegrain bread', 2, 'slice', 'Bakery'], ['Honey', 15, 'g', 'Pantry'], ['Banana', 1, 'pc', 'Fruit & veg']],
+  steps: ['Eat 45–90 min before the session.']
+});
+meal('brunch', {
+  n: 'Big brunch after the long run', kcal: 970, p: 42,
+  ing: [['Eggs', 3, 'pc', 'Dairy & eggs'], ['Wholegrain bread', 2, 'slice', 'Bakery'], ['Mushrooms', 100, 'g', 'Fruit & veg'], ['Baked beans, 420 g can', 0.5, 'can', 'Pantry'], ['Baby spinach', 40, 'g', 'Fruit & veg'], ['Avocado', 0.25, 'pc', 'Fruit & veg'], ['Butter', 5, 'g', 'Dairy & eggs'], ['Wholegrain bread', 1, 'slice', 'Bakery'], ['Orange juice', 250, 'ml', 'Dairy & eggs']],
+  steps: ['Scramble or fry the eggs, sauté mushrooms and spinach, warm the beans. Toast and avocado on the side.']
+});
+
+/* ---------- snacks & before bed ---------- */
+meal('sandwich', {
+  n: 'Ham & cheese sandwich + apple', kcal: 480, p: 24,
+  ing: [['Wholegrain bread', 2, 'slice', 'Bakery'], ['Shaved ham', 60, 'g', 'Meat & fish'], ['Cheese slices', 25, 'g', 'Dairy & eggs'], ['Butter', 5, 'g', 'Dairy & eggs'], ['Apple', 1, 'pc', 'Fruit & veg']],
+  steps: ['Make it in the morning with breakfast.']
+});
+meal('yogbowl', {
+  n: 'Greek yoghurt, muesli & banana', kcal: 505, p: 24,
+  allergy: 'Muesli is a high-risk product: buy one with no peanut, cashew or pistachio "may contain" warning.',
+  ing: [['Greek yoghurt (plain)', 200, 'g', 'Dairy & eggs'], ['Toasted muesli (nut-safe, check label)', 50, 'g', 'Pantry'], ['Banana', 1, 'pc', 'Fruit & veg']],
+  steps: ['Keep a tub of yoghurt in the work fridge.']
+});
+meal('tuna', {
+  n: 'Tuna, crackers, cheese + fruit', kcal: 545, p: 32,
+  ing: [['Tuna in springwater, 95 g can', 1, 'can', 'Pantry'], ['Wholegrain crackers', 40, 'g', 'Pantry'], ['Cheese slices', 20, 'g', 'Dairy & eggs'], ['Apple', 1, 'pc', 'Fruit & veg'], ['Banana', 1, 'pc', 'Fruit & veg']],
+  steps: ['Desk-drawer snack: cans and crackers keep.']
+});
+meal('shake', {
+  n: 'Protein shake, banana & rice cakes', kcal: 520, p: 36,
+  ing: [['Whey protein (nut-free facility)', 30, 'g', 'Pantry'], ['Milk (full cream)', 300, 'ml', 'Dairy & eggs'], ['Banana', 1, 'pc', 'Fruit & veg'], ['Rice cakes', 2, 'pc', 'Pantry'], ['Honey', 10, 'g', 'Pantry']],
+  steps: ['Shake it up at 4:30 pm, before the ride home.']
+});
+meal('smoothie-pm', {
+  n: 'Berry, banana & oat protein smoothie', kcal: 590, p: 37,
+  ing: [['Whey protein (nut-free facility)', 30, 'g', 'Pantry'], ['Milk (full cream)', 300, 'ml', 'Dairy & eggs'], ['Frozen mixed berries', 100, 'g', 'Frozen'], ['Banana', 1, 'pc', 'Fruit & veg'], ['Rolled oats', 30, 'g', 'Pantry']],
+  steps: ['Blend and drink.']
+});
+meal('yognight', {
+  n: 'Greek yoghurt, honey & walnuts', kcal: 265, p: 17,
+  ing: [['Greek yoghurt (plain)', 150, 'g', 'Dairy & eggs'], ['Honey', 10, 'g', 'Pantry'], ['Walnuts', 15, 'g', 'Pantry']],
+  steps: ['Slow-digesting protein before sleep.']
+});
+meal('milk', {
+  n: 'Milk + 2 wheat biscuits', kcal: 310, p: 14,
+  ing: [['Milk (full cream)', 300, 'ml', 'Dairy & eggs'], ['Wheat biscuit cereal (check label)', 2, 'pc', 'Pantry']],
+  steps: ['Easy top-up before bed.']
+});
+
+/* ---------- easy & flexible dinners ---------- */
+meal('eggsbeans', {
+  n: 'Eggs, beans, avocado & cheesy toast', kcal: 850, p: 47,
+  ing: [['Eggs', 3, 'pc', 'Dairy & eggs'], ['Baked beans, 420 g can', 0.5, 'can', 'Pantry'], ['Wholegrain bread', 3, 'slice', 'Bakery'], ['Grated tasty cheese', 25, 'g', 'Dairy & eggs'], ['Avocado', 0.25, 'pc', 'Fruit & veg']],
+  steps: ['10-minute dinner on a non-cooking night.']
+});
+meal('flex', {
+  n: 'Flexible dinner (out or someone else cooks)', kcal: 850, p: 40, guide: true,
+  steps: ['Aim for a palm-to-a-hand of protein (chicken, beef, fish, eggs) and a big serve of carbs (rice, pasta, potato, bread).', 'Eating out: Greek, Lebanese, Italian, Mexican and Japanese are lower-risk for your allergy. Thai, Vietnamese, Chinese and Indian kitchens use peanuts and cashews widely, so ask, and be wary of cross-contact.', 'Short on protein today? Have the before-bed yoghurt or a shake.']
+});
+meal('out-lunch', {
+  n: 'Lunch out with a friend', kcal: 900, p: 40, guide: true,
+  steps: ['Pick carbs + protein: burrito, poke bowl with chicken, chicken schnitzel burger, pasta, sushi + teriyaki chicken.', 'Game day (from mid-January, 3 pm kick-off): eat this by about 12, keep it lower in fat and fibre, carbs first (rice, pasta, bread).', 'Tell staff about your peanut, cashew and pistachio allergy. Skip satay, pesto and dukkah.']
+});
+meal('takeaway', {
+  n: 'Saturday dinner: takeaway or simple cook', kcal: 900, p: 45, guide: true,
+  steps: ['Good picks: Lebanese chicken plate with rice, souvlaki, burgers with chips, sushi + chicken, pizza with chicken (no pesto).', 'After a game or hard session, have this within about 2 hours with plenty of carbs and 30–40 g protein.', 'Vietnamese and Thai dishes are often topped with crushed peanuts: avoid unless you trust the kitchen.']
+});
+
+/* ---------- 2-week plan (A = odd weeks, B = even weeks) ---------- */
+const SLOTS = [['B', 'Breakfast'], ['L', 'Lunch'], ['S', 'Afternoon snack'], ['D', 'Dinner'], ['N', 'Before bed']];
+const MEALPLAN = {
+  A: {
+    days: [
+      { B: 'oats', L: 'burrito', S: 'sandwich', D: 'flex', N: 'yognight' },
+      { B: 'toast', L: 'burrito', S: 'yogbowl', D: 'salmon', N: 'milk' },
+      { B: 'smoothie', L: 'burrito', S: 'tuna', D: 'chilli', N: 'yognight' },
+      { B: 'weetbix', L: 'chilli', S: 'shake', D: 'eggsbeans', N: 'milk' },
+      { B: 'oats', L: 'chilli', S: 'sandwich', D: 'flex' },
+      { B: 'pancakes', L: 'out-lunch', S: 'prerun', D: 'takeaway', N: 'yognight' },
+      { B: 'prerun', L: 'brunch', S: 'smoothie-pm', D: 'greek', N: 'milk' }
+    ],
+    cooks: [{ d: 1, m: 'salmon', n: 2, note: 'Dinner for 2' }, { d: 2, m: 'chilli', n: 4, note: 'Dinner for 2 + Thu & Fri lunches' }, { d: 6, m: 'greek', n: 5, note: 'Dinner for 2 + next Mon–Wed lunches' }]
+  },
+  B: {
+    days: [
+      { B: 'toast', L: 'greek', S: 'tuna', D: 'flex', N: 'yognight' },
+      { B: 'oats', L: 'greek', S: 'sandwich', D: 'noodles', N: 'milk' },
+      { B: 'weetbix', L: 'greek', S: 'yogbowl', D: 'bolo', N: 'yognight' },
+      { B: 'smoothie', L: 'bolo', S: 'shake', D: 'eggsbeans', N: 'milk' },
+      { B: 'toast', L: 'bolo', S: 'yogbowl', D: 'flex' },
+      { B: 'pancakes', L: 'out-lunch', S: 'prerun', D: 'takeaway', N: 'yognight' },
+      { B: 'prerun', L: 'brunch', S: 'smoothie-pm', D: 'burrito', N: 'milk' }
+    ],
+    cooks: [{ d: 1, m: 'noodles', n: 2, note: 'Dinner for 2' }, { d: 2, m: 'bolo', n: 4, note: 'Dinner for 2 + Thu & Fri lunches' }, { d: 6, m: 'burrito', n: 5, note: 'Dinner for 2 + next Mon–Wed lunches' }]
+  }
+};
+
+/* ---------- targets ---------- */
+function latestWeight() { for (let i = S.meas.length - 1; i >= 0; i--) if (S.meas[i].w) return S.meas[i].w; return null; }
+function sessionKcal(r) {
+  if (!r) return 0;
+  switch (r.type) {
+    case 'strength': return r.ov && r.ov.light ? 180 : 250;
+    case 'football': return Math.round(r.est * 6.5);
+    case 'intervals': return 400;
+    case 'zone2': return Math.round(r.min * 9);
+    case 'team': return Math.round(r.min * (r.t.game ? 8 : 6));
+    case 'test': return 300;
+    case 'circuit': return 300;
+  }
+  return 0;
+}
+function daySessions(date) {
+  const p = posOf(date);
+  if (!S.plan || !inPlan(p)) return [];
+  return S.plan[p.w - 1][p.d].map(inst => resolve(inst, p.w)).filter(Boolean);
+}
+function dietTargets(date) {
+  const st = S.settings;
+  const w = latestWeight() || st.weight || 68, hgt = st.height || 172, age = st.age || 30;
+  const bmr = 10 * w + 6.25 * hgt - 5 * age + (st.sex === 'f' ? -161 : 5);
+  const base = Math.round(bmr * 1.4);
+  const dow = (date.getDay() + 6) % 7;
+  const commute = dow < 5 ? Math.round((st.commuteMin == null ? 120 : st.commuteMin) * 5.5) : 0;
+  const sess = daySessions(date).filter(r => r.type !== 'yoga');
+  const sk = sess.reduce((a, r) => a + sessionKcal(r), 0);
+  const surplus = 275 + ((S.diet && S.diet.adj) || 0);
+  const kcal = Math.round((base + commute + sk + surplus) / 50) * 50;
+  const p = Math.round(w * 2);
+  const fat = Math.round(kcal * 0.27 / 9);
+  const carbs = Math.round((kcal - p * 4 - fat * 9) / 4);
+  return { kcal, p, fat, carbs, base, commute, sess, sk, surplus, w, training: sess.length > 0 };
+}
+function mealWeek(date) {
+  const st = startDate() || mondayOf(new Date());
+  const n = daysBetween(st, date);
+  const wk = Math.floor(n / 7);
+  return (((wk % 2) + 2) % 2) === 0 ? 'A' : 'B';
+}
+function dayMeals(date) {
+  const L = mealWeek(date), d = (date.getDay() + 6) % 7;
+  const plan = MEALPLAN[L], day = plan.days[d];
+  const cook = plan.cooks.find(c => c.d === d);
+  return { letter: L, d, day, cook };
+}
+function foodLog(date) { const k = iso(date); return S.food[k] || (S.food[k] = { t: {}, x: [] }); }
+function eatenTotals(date) {
+  const k = iso(date), f = S.food[k]; if (!f) return { kcal: 0, p: 0, n: 0 };
+  const dm = dayMeals(date); let kcal = 0, p = 0, n = 0;
+  SLOTS.forEach(([s]) => { if (f.t[s] && dm.day[s]) { const m = MEALS[dm.day[s]]; kcal += m.kcal; p += m.p; n++; } });
+  (f.x || []).forEach(x => { kcal += +x.kcal || 0; p += +x.p || 0; });
+  return { kcal, p, n };
+}
+function plannedTotals(date) {
+  const dm = dayMeals(date); let kcal = 0, p = 0;
+  SLOTS.forEach(([s]) => { const id = dm.day[s]; if (id) { kcal += MEALS[id].kcal; p += MEALS[id].p; } });
+  return { kcal, p };
+}
+function weighInTrend() {
+  const pts = S.meas.filter(m => m.w).map(m => ({ t: m.ts / (7 * DAY), w: m.w }));
+  if (pts.length < 2) return null;
+  const recent = pts.filter(p => p.t >= pts[pts.length - 1].t - 4);
+  const use = recent.length >= 2 ? recent : pts.slice(-2);
+  const n = use.length, mt = use.reduce((a, p) => a + p.t, 0) / n, mw = use.reduce((a, p) => a + p.w, 0) / n;
+  let num = 0, den = 0; use.forEach(p => { num += (p.t - mt) * (p.w - mw); den += (p.t - mt) ** 2; });
+  if (den < 0.5) return null;
+  const rate = num / den;
+  let advice = 0;
+  if (rate < 0.15) advice = 150; else if (rate > 0.4) advice = -150;
+  return { rate: Math.round(rate * 100) / 100, advice, weeks: Math.round((use[n - 1].t - use[0].t) * 10) / 10 };
+}
+
+/* ---------- shopping list ---------- */
+function shoppingList(letter) {
+  const plan = MEALPLAN[letter];
+  const tot = {};
+  const add = (m, mult) => (m.ing || []).forEach(([name, q, u, aisle]) => {
+    const k = name + '|' + u; tot[k] = tot[k] || { name, u, aisle, q: 0 }; tot[k].q += q * mult;
+  });
+  plan.days.forEach(day => SLOTS.forEach(([s]) => { const m = MEALS[day[s]]; if (m && !m.batch && !m.guide) add(m, 1); }));
+  plan.cooks.forEach(c => add(MEALS[c.m], c.n));
+  return groupList(tot);
+}
+function starterList() {
+  const tot = {}; const c = MEALPLAN.B.cooks.find(x => x.d === 6);
+  (MEALS[c.m].ing || []).forEach(([name, q, u, aisle]) => { const k = name + '|' + u; tot[k] = { name, u, aisle, q: q * c.n }; });
+  return groupList(tot);
+}
+function fmtQty(q, u) {
+  if (u === 'g') return q >= 1000 ? (Math.round(q / 100) / 10) + ' kg' : Math.ceil(q / 10) * 10 + ' g';
+  if (u === 'ml') return q >= 1000 ? (Math.round(q / 100) / 10) + ' L' : Math.ceil(q / 10) * 10 + ' ml';
+  if (u === 'can') return Math.ceil(q - 0.05) + (Math.ceil(q - 0.05) === 1 ? ' can' : ' cans');
+  if (u === 'slice') return Math.ceil(q) + ' slices (≈' + Math.max(1, Math.ceil(q / 18)) + ' loaf' + (Math.ceil(q / 18) > 1 ? 'ves' : '') + ')';
+  if (u === 'pc') return String(Math.ceil(q - 0.05));
+  if (u === 'clove') return Math.ceil(q) + ' cloves';
+  return (Math.round(q * 2) / 2) + ' ' + u;
+}
+function groupList(tot) {
+  const g = {}; Object.values(tot).forEach(x => { (g[x.aisle] = g[x.aisle] || []).push(x); });
+  return AISLES.filter(a => g[a]).map(a => ({ aisle: a, items: g[a].sort((x, y) => x.name.localeCompare(y.name)).map(x => ({ name: x.name, qty: fmtQty(x.q, x.u) })) }));
+}
+
+/* ============================================================
+   DIET VIEW
+   ============================================================ */
+const DUI = { sel: null };
+function dietStrip(date) {
+  const t = dietTargets(date), e = eatenTotals(date);
+  return h('button', { class: 'card diet-strip', onclick: () => { DUI.sel = iso(date); go('#diet'); } },
+    h('div', { class: 'card-title' }, ic('diet'), 'Food today'),
+    h('div', { class: 'ds-row' },
+      h('div', {}, h('b', {}, t.kcal.toLocaleString()), h('small', {}, ' kcal target')),
+      h('div', {}, h('b', {}, t.p + ' g'), h('small', {}, ' protein')),
+      h('div', {}, h('b', {}, e.kcal.toLocaleString()), h('small', {}, ' eaten'))),
+    h('div', { class: 'bar' }, h('i', { style: { width: Math.min(100, e.kcal / t.kcal * 100) + '%' } })));
+}
+
+function viewDiet() {
+  const page = h('div', { class: 'page' });
+  const today = today0();
+  const sel = DUI.sel ? parseISO(DUI.sel) : today;
+  const t = dietTargets(sel), e = eatenTotals(sel), pl = plannedTotals(sel), dm = dayMeals(sel);
+  page.append(pageHead('Diet', { sub: 'Lean bulk: about +0.25 kg a week · Meal week ' + dm.letter }));
+  const mon = mondayOf(sel);
+  page.append(h('div', { class: 'strip' }, DOW.map((dn, i) => {
+    const d = addDays(mon, i); const on = iso(d) === iso(sel);
+    const et = S.food[iso(d)] ? eatenTotals(d) : null;
+    return h('button', { class: 'strip-day' + (on ? ' on' : '') + (iso(d) === iso(today) ? ' today' : ''), onclick: () => { DUI.sel = iso(d); render(true); } },
+      h('span', { class: 'sd-name' }, dn), h('span', { class: 'sd-num' }, d.getDate()),
+      h('span', { class: 'sd-dots' }, et && et.n ? h('i', { class: 'dot full', style: { '--tc': 'var(--acc)' } }) : h('i', { class: 'dot', style: { '--tc': 'var(--line)' } })));
+  })));
+  page.append(h('div', { class: 'row between pad' }, h('button', { class: 'link-btn', onclick: () => { DUI.sel = iso(addDays(mon, -7)); render(true); } }, ic('back'), 'Prev week'),
+    iso(sel) !== iso(today) ? h('button', { class: 'link-btn', onclick: () => { DUI.sel = null; render(true); } }, 'Today') : null,
+    h('button', { class: 'link-btn', onclick: () => { DUI.sel = iso(addDays(mon, 7)); render(true); } }, 'Next week', ic('chev'))));
+
+  // targets
+  const pct = (a, b) => Math.min(100, b ? a / b * 100 : 0);
+  page.append(h('section', { class: 'card targets' },
+    h('div', { class: 'card-title' }, (iso(sel) === iso(today) ? 'Today' : fmtDateLong(sel)) + (t.training ? ' · training day' : ' · rest day')),
+    h('div', { class: 'tg-row' },
+      h('div', { class: 'tg' }, h('div', { class: 'tg-v' }, t.kcal.toLocaleString()), h('div', { class: 'tg-l' }, 'kcal')),
+      h('div', { class: 'tg' }, h('div', { class: 'tg-v' }, t.p), h('div', { class: 'tg-l' }, 'g protein')),
+      h('div', { class: 'tg' }, h('div', { class: 'tg-v' }, t.carbs), h('div', { class: 'tg-l' }, 'g carbs')),
+      h('div', { class: 'tg' }, h('div', { class: 'tg-v' }, t.fat), h('div', { class: 'tg-l' }, 'g fat'))),
+    h('div', { class: 'eat-bars' },
+      h('div', { class: 'eb' }, h('span', {}, 'Eaten ', h('b', {}, e.kcal.toLocaleString()), ' / ' + t.kcal.toLocaleString() + ' kcal'), h('div', { class: 'bar' }, h('i', { style: { width: pct(e.kcal, t.kcal) + '%' } }))),
+      h('div', { class: 'eb' }, h('span', {}, 'Protein ', h('b', {}, e.p + ' g'), ' / ' + t.p + ' g'), h('div', { class: 'bar' }, h('i', { style: { width: pct(e.p, t.p) + '%', background: 'var(--c1)' } })))),
+    h('details', { class: 'why' }, h('summary', {}, 'How this is worked out'),
+      h('div', { class: 'muted sm' }, `Everyday energy ≈ ${t.base.toLocaleString()} (from your weight ${t.w} kg, height, age) + commute ${t.commute} + sessions ${t.sk}${t.sess.length ? ' (' + t.sess.map(r => r.name).join(', ') + ')' : ''} + bulk surplus ${t.surplus} kcal. Protein = 2 g per kg. These are estimates: your weekly weigh-in decides whether to go up or down.`))));
+
+  // meals
+  page.append(h('div', { class: 'sec-title' }, 'Meals · ' + DOW_LONG[dm.d] + ' (week ' + dm.letter + ')'));
+  const log = S.food[iso(sel)] || { t: {}, x: [] };
+  SLOTS.forEach(([s, label]) => {
+    const id = dm.day[s]; if (!id) return;
+    const m = MEALS[id];
+    const done = !!log.t[s];
+    const slotLabel = s === 'B' ? (dm.d >= 5 ? 'Breakfast' : 'Breakfast at work') : s === 'S' ? (dm.d >= 5 ? 'Before training' : 'Before the ride home') : label;
+    const cookNote = dm.cook && dm.cook.m === id && s === 'D' ? 'Cook ' + dm.cook.n + ' portions: ' + dm.cook.note : m.batch && s === 'L' ? 'From your batch cook' : null;
+    page.append(h('div', { class: 'meal-row' + (done ? ' done' : '') },
+      h('button', { class: 'tick' + (done ? ' on' : ''), 'aria-label': 'Ate ' + m.n, 'aria-pressed': done ? 'true' : 'false', onclick: () => { const f = foodLog(sel); f.t[s] = !f.t[s]; save(); render(true); } }, ic('check')),
+      h('button', { class: 'meal-main', onclick: () => mealSheet(id, dm.cook && dm.cook.m === id && s === 'D' ? dm.cook.n : 1) },
+        h('div', { class: 'meal-slot' }, slotLabel), h('div', { class: 'meal-name' }, m.n),
+        h('div', { class: 'meal-meta' }, '≈' + m.kcal + ' kcal · ' + m.p + ' g protein' + (cookNote ? ' · ' + cookNote : ''))),
+      ic('chev')));
+  });
+  (log.x || []).forEach((x, i) => page.append(h('div', { class: 'meal-row done' }, h('span', { class: 'tick on' }, ic('plus')),
+    h('div', { class: 'meal-main' }, h('div', { class: 'meal-slot' }, 'Extra'), h('div', { class: 'meal-name' }, x.n || 'Food'), h('div', { class: 'meal-meta' }, (x.kcal || 0) + ' kcal · ' + (x.p || 0) + ' g protein')),
+    h('button', { class: 'icon-btn', 'aria-label': 'Remove', onclick: () => { log.x.splice(i, 1); save(); render(true); } }, ic('trash')))));
+  page.append(h('div', { class: 'row gap' }, h('button', { class: 'btn ghost', style: { flex: 1 }, onclick: () => addFoodSheet(sel) }, ic('plus'), 'Add other food'),
+    h('button', { class: 'btn ghost', style: { flex: 1 }, onclick: () => { const f = foodLog(sel); SLOTS.forEach(([s]) => { if (dm.day[s]) f.t[s] = true; }); save(); render(true); } }, ic('check'), 'Ate it all')));
+  const gap = t.kcal - pl.kcal;
+  if (gap > 150) page.append(h('div', { class: 'tip' }, h('b', {}, 'Planned meals are ~' + gap + ' kcal short today. '), 'Top up with: an extra 300 ml milk (195), 2 slices toast & honey (260), a banana (105), a handful of almonds or macadamias (30 g ≈ 180), or a bigger rice/pasta serve.'));
+
+  // weigh-in
+  const tr = weighInTrend(); const lw = latestWeight();
+  page.append(h('section', { class: 'card' }, h('div', { class: 'card-title' }, ic('ruler'), 'Weigh-in check'),
+    lw ? h('div', {}, 'Latest: ', h('b', {}, lw + ' kg'), tr ? ' · trend ' : '', tr ? h('b', {}, (tr.rate >= 0 ? '+' : '') + tr.rate + ' kg/week') : '', tr ? ' over ' + tr.weeks + ' weeks' : '') : h('div', { class: 'muted' }, 'No weigh-ins yet. They come from your weekly measurements.'),
+    !tr ? h('div', { class: 'muted sm' }, 'After two weekly weigh-ins the app will tell you whether to eat more or less.') :
+      tr.advice === 0 ? h('div', { class: 'ok-txt' }, 'On track (target +0.15 to +0.4 kg a week). Keep going.') :
+        h('div', {}, h('div', { class: 'muted sm' }, tr.advice > 0 ? 'Gaining slower than +0.15 kg a week: eat about 150 kcal more each day.' : 'Gaining faster than +0.4 kg a week: probably adding fat. Eat about 150 kcal less each day.'),
+          h('button', { class: 'btn sm', onclick: () => { S.diet.adj = (S.diet.adj || 0) + tr.advice; S.diet.lastAdj = Date.now(); save(); render(true); toast('Daily target ' + (tr.advice > 0 ? '+' : '') + tr.advice + ' kcal'); } }, (tr.advice > 0 ? 'Add ' : 'Remove ') + Math.abs(tr.advice) + ' kcal a day')),
+    S.diet.adj ? h('div', { class: 'muted sm' }, 'Adjustment so far: ' + (S.diet.adj > 0 ? '+' : '') + S.diet.adj + ' kcal a day. ', h('button', { class: 'link-btn', onclick: () => { S.diet.adj = 0; save(); render(true); } }, 'Reset')) : null,
+    h('button', { class: 'link-btn', onclick: () => measureSheet() }, ic('plus'), 'Log a weigh-in')));
+
+  // cooking & shopping
+  const plan = MEALPLAN[dm.letter];
+  page.append(h('section', { class: 'card' }, h('div', { class: 'card-title' }, 'Cooking this week (week ' + dm.letter + ')'),
+    plan.cooks.map(c => h('button', { class: 'link-row', onclick: () => mealSheet(c.m, c.n) }, h('span', {}, h('b', {}, DOW[c.d] + ': '), MEALS[c.m].n, h('br'), h('small', { class: 'muted' }, c.n + ' portions · ' + c.note)), ic('chev'))),
+    h('div', { class: 'muted sm' }, 'Boil a batch of eggs on Sunday for weekday breakfasts.'),
+    h('button', { class: 'btn wide', onclick: () => shopSheet(dm.letter) }, 'Shopping list')));
+
+  // allergy & supplements
+  page.append(h('section', { class: 'card' }, h('div', { class: 'card-title' }, 'Allergy rules'),
+    h('ul', { class: 'cues' },
+      h('li', {}, 'No peanuts, cashews or pistachios, and avoid products labelled "may contain" them.'),
+      h('li', {}, 'Watch: satay, pesto, dukkah, Asian sauces and curry pastes, muesli and protein bars, baklava, nut mixes, some vegan cheeses and ice creams.'),
+      h('li', {}, 'Almonds, hazelnuts, walnuts and macadamias are fine. Buy packaged ones without peanut/cashew/pistachio warnings.'),
+      h('li', {}, 'Carry your prescribed medication if you have one, especially when eating out.'))));
+  page.append(h('section', { class: 'card' }, h('div', { class: 'card-title' }, 'Supplements & timing'),
+    h('ul', { class: 'cues' },
+      h('li', {}, h('b', {}, 'Protein powder: '), 'a convenience, not essential. Choose whey made in a peanut/tree-nut-free facility.'),
+      h('li', {}, h('b', {}, 'Caffeine: '), 'about 200 mg (≈3 mg/kg, two espressos) 45–60 min before 4×4s, tests and games. Not after ~2 pm on most days, to protect sleep.'),
+      h('li', {}, h('b', {}, 'Spread protein: '), '4–5 feeds of 30–35 g through the day works best for muscle gain.'),
+      h('li', {}, h('b', {}, 'Before sessions: '), 'eat carbs 1–3 h before. After: dinner with carbs + 30–40 g protein within ~2 h.'))));
+  page.append(h('div', { class: 'muted sm center' }, 'Calorie and protein figures are estimates. This is general guidance, not advice from a dietitian.'));
+  return page;
+}
+
+function mealSheet(id, portions) {
+  const m = MEALS[id]; if (!m) return;
+  portions = portions || 1;
+  sheet(m.n, h('div', {},
+    h('div', { class: 'row gap wrap' }, h('span', { class: 'tag' }, '≈' + m.kcal + ' kcal / portion'), h('span', { class: 'tag' }, m.p + ' g protein'), m.time ? h('span', { class: 'tag' }, ic('clock'), m.time) : null, portions > 1 ? h('span', { class: 'tag tag-book' }, 'Makes ' + portions + ' portions') : null),
+    m.allergy ? h('div', { class: 'tip' }, h('b', {}, 'Allergy: '), m.allergy) : null,
+    m.ing ? h('div', {}, h('div', { class: 'sec-title sm' }, 'Ingredients' + (portions > 1 ? ' (' + portions + ' portions)' : '')),
+      h('table', { class: 'tbl' }, h('tbody', {}, m.ing.map(([name, q, u]) => h('tr', {}, h('td', {}, name), h('td', {}, fmtQty(q * portions, u))))))) : null,
+    h('div', { class: 'sec-title sm' }, m.guide ? 'How to choose' : 'Method'),
+    h('ol', { class: 'cues' }, (m.steps || []).map(s => h('li', {}, s)))));
+}
+
+function addFoodSheet(date) {
+  const v = { n: '', kcal: '', p: '' };
+  const s = sheet('Add other food', h('div', {},
+    field('What', h('input', { type: 'text', placeholder: 'e.g. Flat white, chicken wrap', oninput: e => v.n = e.target.value })),
+    h('div', { class: 'grid2' }, field('Calories', numInput('', { inputmode: 'numeric', oninput: e => v.kcal = +e.target.value || 0 })), field('Protein (g)', numInput('', { inputmode: 'numeric', oninput: e => v.p = +e.target.value || 0 }))),
+    h('div', { class: 'chips wrap' }, [['Flat white', 150, 8], ['Banana', 105, 1], ['Milk 300 ml', 195, 10], ['Toast & honey ×2', 260, 8], ['Almonds 30 g', 180, 6], ['Protein shake', 280, 34]].map(([n, k, p]) =>
+      h('button', { class: 'chip', onclick: () => { const f = foodLog(date); f.x.push({ n, kcal: k, p }); save(); s.close(); render(true); } }, n))),
+    h('button', { class: 'btn wide', onclick: () => { if (!v.kcal && !v.p) { toast('Enter calories or protein'); return; } const f = foodLog(date); f.x.push({ n: v.n || 'Food', kcal: v.kcal || 0, p: v.p || 0 }); save(); s.close(); render(true); } }, 'Add')));
+}
+
+function shopSheet(letter) {
+  let tab = letter;
+  const body = h('div', {});
+  function draw() {
+    body.innerHTML = '';
+    body.append(seg([{ v: 'A', l: 'Week A' }, { v: 'B', l: 'Week B' }, { v: 'start', l: 'Before week 1' }], tab, x => { tab = x; draw(); }));
+    const list = tab === 'start' ? starterList() : shoppingList(tab);
+    body.append(h('p', { class: 'muted sm' }, tab === 'start'
+      ? 'Cook on the Sunday before week 1: chicken burrito bowls ×5 (dinner for 2 + Mon–Wed lunches).'
+      : 'For one person, plus dinners for two on Tue, Wed and Sun. The Sunday cook makes next week\'s Mon–Wed lunches. Saturday and two "flexible" dinners aren\'t included.'));
+    list.forEach(g => {
+      body.append(h('div', { class: 'sec-title sm' }, g.aisle));
+      g.items.forEach(it => {
+        const key = tab + '|' + it.name;
+        const on = !!S.shop[key];
+        body.append(h('label', { class: 'shop-row' + (on ? ' on' : '') }, h('input', { type: 'checkbox', checked: on, onchange: e => { S.shop[key] = e.target.checked; save(); e.target.closest('.shop-row').classList.toggle('on', e.target.checked); } }),
+          h('span', {}, it.name), h('b', {}, it.qty)));
+      });
+    });
+    body.append(h('button', { class: 'btn ghost wide', onclick: () => { Object.keys(S.shop).filter(k => k.startsWith(tab + '|')).forEach(k => delete S.shop[k]); save(); draw(); } }, 'Clear ticks'));
+  }
+  draw();
+  sheet('Shopping list', body, { full: true });
+}
+
+/* ============================================================
    VIEWS — Today, Session, Exercise, Drill, Plan, Library, Builders
    ============================================================ */
 const UI = { daySel: null, daySelW: null, planWeek: null, libTab: 'ex', libQ: '', prog: {} };
@@ -2214,17 +2699,22 @@ function viewToday() {
   if (!list.length) page.append(empty('Rest day. Nothing scheduled.'));
   list.forEach(inst => page.append(sessionCard({ w, d: sel, inst })));
   page.append(h('button', { class: 'btn ghost wide', onclick: () => addSessionSheet(w, sel) }, ic('plus'), sel === tp.d ? 'Add a session to today' : 'Add a session'));
-  page.append(h('div', { class: 'tip' }, h('b', {}, 'Commute rides count. '), 'Add a Zone 2 session and log it when your heart rate stays in zone.'));
+  if (sel === tp.d && typeof dietStrip === 'function') page.append(dietStrip(today0()));
   return page;
 }
 
+function isMorning(inst) { const t = tplOf(inst.tpl); return !!(t && t.morning); }
 function weekProgress(w) {
-  let tot = 0, done = 0, load = 0;
-  S.plan[w - 1].forEach(day => day.forEach(inst => { tot++; const l = logOf(inst.id); if (l && l.status !== 'skipped') { done++; load += (l.rpe || 0) * (l.min || 0); } }));
+  let tot = 0, done = 0, load = 0, yT = 0, yD = 0;
+  S.plan[w - 1].forEach(day => day.forEach(inst => {
+    const l = logOf(inst.id), ok = l && l.status !== 'skipped';
+    if (isMorning(inst)) { yT++; if (ok) yD++; return; }
+    tot++; if (ok) { done++; load += (l.rpe || 0) * (l.min || 0); }
+  }));
   const pct = tot ? Math.round(done / tot * 100) : 0;
   return h('div', { class: 'wk-prog' },
     h('div', { class: 'bar', role: 'progressbar', 'aria-valuemin': 0, 'aria-valuemax': tot, 'aria-valuenow': done, 'aria-label': 'Sessions done this week' }, h('i', { style: { width: pct + '%' } })),
-    h('div', { class: 'wk-prog-txt' }, h('span', {}, h('b', {}, done + '/' + tot), ' sessions done'), h('span', {}, 'Load ', h('b', {}, load.toLocaleString())), h('span', {}, 'RPE target ', h('b', {}, rpeTarget(w)))));
+    h('div', { class: 'wk-prog-txt' }, h('span', {}, h('b', {}, done + '/' + tot), ' sessions'), h('span', {}, 'Yoga ', h('b', {}, yD + '/' + yT)), h('span', {}, 'Load ', h('b', {}, load.toLocaleString())), h('span', {}, 'RPE ', h('b', {}, rpeTarget(w)))));
 }
 
 function weekStrip(w, sel, todayIdx, onSel) {
@@ -2330,8 +2820,9 @@ function viewSession(iid) {
     r.ov && r.ov.user ? h('span', { class: 'tag tag-ov' }, 'Adjusted') : null));
   if (l) page.append(logSummary(iid, r, l));
   page.append(h('div', { class: 'cta-row' },
-    h('button', { class: 'btn big', onclick: () => { SOUND.unlock(); go('#run/' + iid); } }, ic('play'), l ? 'Start again' : r.type === 'strength' ? 'Start session' : 'Start guided session'),
-    h('button', { class: 'btn ghost', onclick: () => go('#log/' + iid) }, l ? 'Edit log' : 'Log without timer')));
+    r.type === 'team' ? h('button', { class: 'btn big', onclick: () => go('#log/' + iid) }, ic('check'), l ? 'Edit log' : 'Log session')
+      : h('button', { class: 'btn big', onclick: () => { SOUND.unlock(); go('#run/' + iid); } }, ic('play'), l ? 'Start again' : r.type === 'strength' ? 'Start session' : 'Start guided session'),
+    r.type === 'team' ? null : h('button', { class: 'btn ghost', onclick: () => go('#log/' + iid) }, l ? 'Edit log' : 'Log without timer')));
   // target HR helpers
   if (r.type === 'intervals' || r.type === 'zone2') {
     const hr = hrRange(r.hrLo, r.hrHi);
@@ -2339,14 +2830,19 @@ function viewSession(iid) {
       hr ? h('div', {}, h('div', { class: 'big-num' }, hr[0] + '–' + hr[1], h('small', {}, ' bpm')), h('div', { class: 'muted sm' }, 'Target: ' + Math.round(r.hrLo * 100) + '–' + Math.round(r.hrHi * 100) + '% of max HR (' + maxHR() + ')'))
         : h('div', {}, h('b', {}, 'Add your age or max heart rate'), h('div', { class: 'muted sm' }, 'so the app can show your target zone. '), h('button', { class: 'link-btn', onclick: () => go('#settings') }, 'Open settings'))));
   }
-  if (r.type === 'intervals') page.append(h('p', { class: 'muted' }, 'Each 4-minute block cycles through the moves below, 30 s each, without stopping. Recover for 4 minutes with an easy jog on the spot. Your heart rate should reach the target by minute 2 or 3 of each block. If it doesn\'t, push the burpees and up-and-downs harder, or run the block on a hill.'));
+  if (r.type === 'intervals') page.append(h('p', { class: 'muted' }, r.mode === 'run'
+    ? 'Warm up, then run 4 minutes hard enough to reach the target heart rate by minute 2–3, and jog easy for 3 minutes. A gentle hill helps you get there without sprinting. It should feel hard but controlled: you could not hold a conversation.'
+    : r.mode === 'dribble' ? 'Set up the cone track below. Dribble it hard for 4 minutes, then 3 minutes easy. Keep the ball close on the slalom with your left foot. Your heart rate should reach the target by minute 2–3. If it doesn\'t, make the straight longer and drive harder.'
+    : 'Each 4-minute block cycles through the moves below, 30 s each, without stopping, then an easy recovery jog.'));
+  if (r.type === 'team') page.append(h('p', { class: 'muted' }, r.t.game ? 'Log it after the game: minutes played, how hard it felt (RPE) and heart rate if you wore a watch. This feeds your weekly load and calories.' : 'Log it after training: minutes, RPE and heart rate. This feeds your weekly load and calories.'));
+  if (r.ov && r.ov.light) page.append(h('div', { class: 'tip' }, h('b', {}, 'Light week-day session. '), 'Two sets, keep the weight heavy, stop well short of failure. Skip it if Tuesday\'s team session was brutal.'));
   if (r.type === 'zone2') page.append(h('p', { class: 'muted' }, 'Run or ride at a pace where you can talk in full sentences. ' + r.min + ' minutes today. Slow down if your heart rate drifts above the zone.'));
   if (r.type === 'test') page.append(testInfo());
   // items
   if (r.warmup) page.append(h('details', { class: 'card warm' }, h('summary', {}, h('b', {}, 'Warm-up'), h('span', { class: 'muted' }, ' · 5 min, guided')),
     WARMUP.map(it => itemRow({ ex: it.ex }, it.sec + 's' + (it.note ? ' · ' + it.note : ''), iid, null))));
   if (r.items.length && r.type !== 'zone2' && r.type !== 'test') {
-    page.append(h('div', { class: 'sec-title' }, r.type === 'intervals' ? 'Moves in each block' : r.type === 'football' ? 'Drills' : r.type === 'yoga' ? 'Poses' : 'Exercises'));
+    page.append(h('div', { class: 'sec-title' }, r.type === 'intervals' ? (r.mode === 'hiit' ? 'Moves in each block' : r.mode === 'dribble' ? 'Track set-up' : 'Activity') : r.type === 'football' ? 'Drills' : r.type === 'yoga' ? 'Poses' : 'Exercises'));
     let lastPart = null;
     r.items.forEach((it, i) => {
       if (r.type === 'football' && it.part !== lastPart) { page.append(h('div', { class: 'part-title' }, it.part)); lastPart = it.part; }
@@ -2561,7 +3057,7 @@ function viewPlan(wArg) {
   const st = dateOf(w, 0), en = dateOf(w, 6);
   page.append(h('div', { class: 'wk-head card' },
     h('div', {}, h('div', { class: 'kicker' }, 'Week ' + w + ' · ' + fmtDate(st) + '–' + fmtDate(en)), h('h2', {}, wi.phase + (wi.deload ? ' (lighter week)' : '')),
-      h('div', { class: 'muted sm' }, 'Football: ' + wi.fbName + ' · Strength sets: ' + strengthSets(4, w) + ' · Circuit sets: ' + circuitSets(w) + ' · 4×4 blocks: ' + blockCount(w) + ' · Long Zone 2: ' + z2LongMin(w) + ' min' + (wi.test ? ' · VO2 test this week' : ''))),
+      h('div', { class: 'muted sm' }, wi.team ? 'Team training Tue/Thu, games Sat · Strength: 2 sets, heavy · Recovery run Sunday' + (wi.test ? ' · VO2 retest Wednesday' : '') : 'Skills: ' + wi.fbName + ' · Strength sets: ' + strengthSets(3, w) + ' · 4×4 blocks: ' + blockCount(w) + ' · Long run: ' + z2LongMin(w) + ' min' + (wi.test ? ' · VO2 test Wednesday' : ''))),
     weekProgress(w)));
   page.append(h('div', { class: 'week-list' }, DOW.map((dn, d) => h('div', { class: 'wl-day' + (inPlan(tp) && tp.w === w && tp.d === d ? ' today' : '') },
     h('div', { class: 'wl-date' }, h('b', {}, dn), h('span', {}, fmtDate(dateOf(w, d)))),
@@ -2784,7 +3280,7 @@ function viewProgress() {
 
   page.append(CH.bars('Sessions done per week', wk.map(o => ({ label: 'W' + o.w, full: 'Week ' + o.w, v: o.done, tip: o.done + ' of ' + o.planned + ' planned', hl: o.w === curW })), { xName: 'Week' }));
   page.append(CH.bars('Weekly training load', wk.map(o => ({ label: 'W' + o.w, full: 'Week ' + o.w, v: o.load, hl: o.w === curW })), { unit: 'RPE×min', note: 'Load = session RPE × minutes. Deload weeks 4 and 8 should dip.' }));
-  page.append(CH.bars('Zone 2 minutes per week', wk.map(o => ({ label: 'W' + o.w, full: 'Week ' + o.w, v: o.z2, hl: o.w === curW })), { unit: 'min', color: 'var(--c-zone2)' }));
+  page.append(CH.bars('Easy running minutes per week', wk.map(o => ({ label: 'W' + o.w, full: 'Week ' + o.w, v: o.z2, hl: o.w === curW })), { unit: 'min', color: 'var(--c-zone2)', note: 'Long and recovery runs. Your commute isn\'t counted here.' }));
 
   const hrLogs = logs.filter(l => l.hrAvg || l.hrMax);
   page.append(CH.line('Heart rate per session', [
@@ -2800,7 +3296,7 @@ function viewProgress() {
   const runs = logs.filter(l => l.dist && l.type === 'zone2');
   const dSel = seg([{ v: 'dist', l: 'Distance' }, { v: 'time', l: 'Time' }, { v: 'pace', l: 'Pace' }], UI.prog.dist, v => { UI.prog.dist = v; render(true); });
   const dPts = runs.map(l => ({ x: l.ts, y: UI.prog.dist === 'dist' ? +l.dist : UI.prog.dist === 'time' ? +l.min : Math.round((l.min / l.dist) * 100) / 100, lab: (tplOf(l.tpl) || {}).n })).filter(p => isFinite(p.y) && p.y > 0);
-  page.append(CH.line('Zone 2: distance & time', [{ name: UI.prog.dist, color: 'var(--c-zone2)', pts: dPts }], { unit: UI.prog.dist === 'dist' ? 'km' : UI.prog.dist === 'time' ? 'min' : 'min/km', controls: dSel, empty: 'Log distance on Zone 2 sessions to see this' }));
+  page.append(CH.line('Runs: distance & time', [{ name: UI.prog.dist, color: 'var(--c-zone2)', pts: dPts }], { unit: UI.prog.dist === 'dist' ? 'km' : UI.prog.dist === 'time' ? 'min' : 'min/km', controls: dSel, empty: 'Log distance on Zone 2 sessions to see this' }));
 
   // drill scores
   const scored = {};
@@ -2830,6 +3326,13 @@ function viewProgress() {
     page.append(CH.line('Strength', series, { controls: sel, unit: e.timed ? 's' : 'kg', note: e.timed ? null : 'Est. 1RM uses the Epley formula from your best set.' }));
   } else page.append(CH.line('Strength', [], { empty: 'Log sets in a strength session to see your lifts climb' }));
 
+  const fdays = Object.keys(S.food).filter(k => { const f = S.food[k]; return f && (Object.values(f.t || {}).some(Boolean) || (f.x || []).length); }).sort();
+  page.append(CH.line('Daily calories (ticked meals)', [
+    { name: 'Eaten', color: C1, pts: fdays.map(k => ({ x: parseISO(k).getTime(), y: eatenTotals(parseISO(k)).kcal })) },
+    { name: 'Target', color: C2, pts: fdays.map(k => ({ x: parseISO(k).getTime(), y: dietTargets(parseISO(k)).kcal })) }], { unit: 'kcal', empty: 'Tick meals in the Diet tab to see this' }));
+  page.append(CH.line('Daily protein (ticked meals)', [
+    { name: 'Eaten', color: C1, pts: fdays.map(k => ({ x: parseISO(k).getTime(), y: eatenTotals(parseISO(k)).p })) },
+    { name: 'Target', color: C2, pts: fdays.map(k => ({ x: parseISO(k).getTime(), y: dietTargets(parseISO(k)).p })) }], { unit: 'g', empty: 'Tick meals in the Diet tab to see this' }));
   page.append(CH.line('VO2 max (estimated)', [{ name: 'VO2 max', color: 'var(--c-test)', pts: tests.map(l => ({ x: l.ts, y: +l.vo2, lab: l.testType === 'beep' ? 'Beep L' + l.level + '-' + l.shuttle : (l.testDist || '') + ' m' })) }], { unit: 'ml/kg/min', empty: 'Tests are planned for weeks 1, 6 and 12' }));
 
   UI.prog.body = UI.prog.body || 'w';
@@ -2878,6 +3381,13 @@ function viewSettings() {
     maxHR() ? h('div', { class: 'zones' },
       [['Zone 2', 0.6, 0.7, 't-zone2'], ['4×4 work', 0.9, 0.95, 't-intervals']].map(([n, a, b, c]) => { const r = hrRange(a, b); return h('div', { class: 'zone ' + c }, h('i', { class: 'dot' }), h('span', {}, n), h('b', {}, r[0] + '–' + r[1] + ' bpm')); })) : null,
     st.maxSrc !== 'est' && st.maxHR ? h('button', { class: 'link-btn', onclick: () => { st.maxHR = null; st.maxSrc = 'est'; save(); render(true); } }, 'Reset to the estimate') : null));
+  page.append(h('section', { class: 'card' }, h('div', { class: 'card-title' }, 'Body & diet'),
+    h('div', { class: 'grid2' },
+      field('Height (cm)', numInput(st.height, { inputmode: 'numeric', onchange: e => { st.height = +e.target.value || null; save(); } })),
+      field('Sex', h('select', { onchange: e => { st.sex = e.target.value; save(); } }, h('option', { value: 'm', selected: st.sex !== 'f' }, 'Male'), h('option', { value: 'f', selected: st.sex === 'f' }, 'Female'))),
+      field('Starting weight (kg)', numInput(st.weight, { onchange: e => { st.weight = +e.target.value || null; save(); } })),
+      field('Commute riding (min/workday)', numInput(st.commuteMin == null ? 120 : st.commuteMin, { inputmode: 'numeric', onchange: e => { st.commuteMin = +e.target.value || 0; save(); } }))),
+    h('div', { class: 'muted sm' }, 'Used for daily calorie targets. Your weekly weigh-ins replace the starting weight.' + (S.diet.adj ? ' Weigh-in adjustment: ' + (S.diet.adj > 0 ? '+' : '') + S.diet.adj + ' kcal/day.' : ''))));
   page.append(h('section', { class: 'card' }, h('div', { class: 'card-title' }, 'Weekly measurements'),
     h('div', { class: 'grid2' },
       field('Day', h('select', { onchange: e => { st.mDay = +e.target.value; save(); updateTopbar(); render(true); } }, JS_DAYS.map((d, i) => h('option', { value: i, selected: st.mDay === i }, d)))),
@@ -2999,7 +3509,8 @@ function viewHelp() {
     h('p', {}, 'Keep the app open with the screen on. Phones pause timers when the screen locks. "Keep screen on" in Settings helps on supported phones.'),
     h('p', {}, 'Turn your ringer on for beeps. Voice cues use your phone\'s built-in voice.')));
   page.append(sec('How progression works',
-    h('p', {}, h('b', {}, 'Weeks 1–3 build, 4 deloads, 5–7 load, 8 deloads, 9–11 peak, 12 tapers and retests. '), 'Sets, circuit rounds, 4×4 blocks and the long Zone 2 run follow that automatically.'),
+    h('p', {}, h('b', {}, 'Weeks 1–2 intro, 3–5 build, 6 peak, 7 deload + test, 8–12 around team training (retest in week 12). '), 'Strength sets, 4×4 blocks and the long run follow that automatically.'),
+    h('p', {}, h('b', {}, 'Why this plan: '), '4×4 intervals at 90–95% max HR twice a week raised VO2 max ~11% in footballers and increased distance covered and sprints in matches. Strength and cardio together don\'t blunt strength or muscle gain overall, and cycling interferes less than running. Nordic curls roughly halve hamstring injuries; Copenhagen planks reduce groin injuries.'),
     h('p', {}, h('b', {}, 'Strength: '), 'each exercise has a rep range. When every set reaches the top of the range at RPE 8 or less, the app suggests adding weight next time (+5 kg on barbell lower-body lifts, +2.5 kg otherwise). Stuck for two sessions? It suggests a harder variation.'),
     h('p', {}, h('b', {}, 'Override anything: '), 'open a session and use "Adjust this session", or edit the session in Library → Sessions.')));
   page.append(sec('Pictures for exercises',
@@ -3013,23 +3524,26 @@ function viewOnboard() {
   const st = S.settings;
   const t0 = today0();
   const defStart = t0.getDay() === 1 ? t0 : addDays(mondayOf(t0), 7);
-  const vals = { start: iso(defStart), age: st.age, maxHR: st.maxHR, mDay: st.mDay, mHour: st.mHour };
+  const vals = { start: iso(defStart), age: st.age, maxHR: st.maxHR, mDay: st.mDay, mHour: st.mHour, height: st.height, weight: st.weight };
   const page = h('div', { class: 'page onboard' });
   page.append(h('div', { class: 'hero' }, h('div', { class: 'kicker' }, 'Preseason · 12 weeks'), h('h1', {}, 'Let\'s set up your plan'),
-    h('p', { class: 'muted' }, 'Strength, HIIT and 4×4 intervals for VO2 max, left-foot football drills for a wing back, Zone 2 for 2-hour games, and yoga for hips and hamstrings. All on one weekly schedule you can change.')));
+    h('p', { class: 'muted' }, '4×4 intervals for VO2 max, two home strength sessions, left-foot football for a wing back, a weekly long run, yoga every morning, and a lean-bulk diet. Weeks 8–12 fit around team training. Everything can be changed.')));
   page.append(h('section', { class: 'card' },
     field('Start date (Monday of week 1)', h('input', { type: 'date', value: vals.start, onchange: e => vals.start = e.target.value })),
     h('div', { class: 'grid2' },
       field('Age', numInput(vals.age, { inputmode: 'numeric', oninput: e => vals.age = +e.target.value || null })),
       field('Max HR if known', numInput(vals.maxHR, { inputmode: 'numeric', placeholder: 'optional', oninput: e => vals.maxHR = +e.target.value || null }))),
-    h('div', { class: 'f-hint' }, 'Used for your Zone 2 and 4×4 heart-rate targets.'),
+    h('div', { class: 'grid2' },
+      field('Height (cm)', numInput(vals.height, { inputmode: 'numeric', oninput: e => vals.height = +e.target.value || null })),
+      field('Weight (kg)', numInput(vals.weight, { oninput: e => vals.weight = +e.target.value || null }))),
+    h('div', { class: 'f-hint' }, 'Used for heart-rate zones and daily calorie targets.'),
     h('div', { class: 'grid2' },
       field('Measurement day', h('select', { onchange: e => vals.mDay = +e.target.value }, JS_DAYS.map((d, i) => h('option', { value: i, selected: vals.mDay === i }, d)))),
       field('Time', h('select', { onchange: e => vals.mHour = +e.target.value }, Array.from({ length: 24 }, (_, i) => h('option', { value: i, selected: vals.mHour === i }, String(i).padStart(2, '0') + ':00'))))),
     h('button', { class: 'btn big wide', onclick: () => {
       if (!vals.start) { toast('Pick a start date'); return; }
       st.start = iso(mondayOf(parseISO(vals.start))); st.age = vals.age; st.maxHR = vals.maxHR || null; st.maxSrc = vals.maxHR ? 'manual' : 'est';
-      st.mDay = vals.mDay; st.mHour = vals.mHour;
+      st.mDay = vals.mDay; st.mHour = vals.mHour; st.height = vals.height; st.weight = vals.weight;
       S.plan = defaultPlan(uid); save(); go('#'); render();
       setTimeout(() => { if (measureDue().due) measureSheet(); }, 400);
     } }, 'Create my 12-week plan')));
@@ -3052,11 +3566,11 @@ const ROUTES = [
   [/^$/, () => viewToday()], [/^plan(?:\/(\d+))?$/, m => viewPlan(m[1])], [/^lib(?:\/(\w+))?$/, m => viewLibrary(m[1])],
   [/^ex\/([^?]+)$/, (m, q) => viewExercise(decodeURIComponent(m[1]), q)], [/^dr\/([^?]+)$/, (m, q) => viewDrill(m[1], q)],
   [/^s\/(.+)$/, m => viewSession(m[1])], [/^run\/(.+)$/, m => viewRun(m[1])], [/^log\/(.+)$/, m => viewLog(m[1])],
-  [/^progress$/, () => viewProgress()], [/^more$/, () => viewMore()], [/^settings$/, () => viewSettings()], [/^measure$/, () => viewMeasure()],
+  [/^progress$/, () => viewProgress()], [/^diet$/, () => viewDiet()], [/^more$/, () => viewMore()], [/^settings$/, () => viewSettings()], [/^measure$/, () => viewMeasure()],
   [/^tests$/, () => viewTests()], [/^backup$/, () => viewBackup()], [/^help$/, () => viewHelp()], [/^tpl\/(.+)$/, m => viewTemplate(m[1])],
   [/^build\/(.+)$/, m => viewBuilder(m[1])], [/^newex(?:\/(.+))?$/, m => viewExEditor(m[1])]
 ];
-const NAV = [['', 'today', 'Today'], ['plan', 'plan', 'Plan'], ['lib', 'library', 'Library'], ['progress', 'progress', 'Progress'], ['more', 'more', 'More']];
+const NAV = [['', 'today', 'Today'], ['plan', 'plan', 'Plan'], ['diet', 'diet', 'Diet'], ['lib', 'library', 'Library'], ['progress', 'progress', 'Progress'], ['more', 'more', 'More']];
 function parseHash() {
   const raw = location.hash.replace(/^#\/?/, '');
   const [path, qs] = raw.split('?'); const q = {};
@@ -3076,7 +3590,7 @@ function render(keep) {
   const running = path.startsWith('run/');
   document.body.classList.toggle('running', running);
   const top = path.split('/')[0];
-  const navKey = ['ex', 'dr', 'tpl', 'build', 'newex'].includes(top) ? 'lib' : ['s', 'log'].includes(top) ? (UI.fromPlan ? 'plan' : '') : ['settings', 'measure', 'tests', 'backup', 'help'].includes(top) ? 'more' : top;
+  const navKey = top === 'diet' ? 'diet' : ['ex', 'dr', 'tpl', 'build', 'newex'].includes(top) ? 'lib' : ['s', 'log'].includes(top) ? (UI.fromPlan ? 'plan' : '') : ['settings', 'measure', 'tests', 'backup', 'help'].includes(top) ? 'more' : top;
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.toggle('on', b.dataset.k === navKey));
   if (top === 'plan') UI.fromPlan = true; else if (top === '') UI.fromPlan = false;
   if (keep && path === lastPath) window.scrollTo(0, sy); else window.scrollTo(0, 0);
@@ -3095,6 +3609,7 @@ async function init() {
   buildShell();
   window.addEventListener('hashchange', () => render());
   try { await MEDIA.init(); } catch (e) { }
+  if (S.migrated) { S.plan = defaultPlan(uid); S.drafts = {}; delete S.migrated; save(); setTimeout(() => toast('Your plan was updated to the new evidence-based version. Logs are kept.'), 800); }
   render();
   setInterval(updateTopbar, 30000);
   if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => { });
@@ -3142,10 +3657,16 @@ function buildSteps(r) {
       else if (s < r.sets) out.push({ kind: 'rest', label: 'Set rest', sec: r.setRest, ex: r.items[0].ex });
     });
   } else if (r.type === 'intervals') {
-    out.push({ kind: 'prep', label: 'Get ready', sec: 15, ex: r.moves[0] });
+    const run = r.mode === 'run', drib = r.mode === 'dribble';
+    if (run) { out.push(...warmSteps()); out.push({ kind: 'jog', label: 'Easy jog', ex: 'easy-run', sec: 300, note: 'Build gradually from easy to steady' }); }
+    if (drib) out.push({ kind: 'jog', label: 'Warm-up', dr: 'f2', sec: 300, note: 'Easy dribbling, lots of left-foot touches' });
+    out.push({ kind: 'prep', label: 'Get ready', sec: 15, ex: run ? 'easy-run' : drib ? undefined : r.moves[0], dr: drib ? 'f35' : undefined });
     for (let b = 1; b <= r.blocks; b++) {
-      out.push({ kind: 'block', label: 'Block ' + b + ' of ' + r.blocks, sec: r.work, block: b, blocks: r.blocks, moves: r.moves, moveSec: r.moveSec });
-      out.push({ kind: 'recovery', label: b < r.blocks ? 'Recover' : 'Cool down', sec: b < r.blocks ? r.rec : 180, block: b, ex: 'jog-on-spot' });
+      out.push({ kind: 'block', label: 'Block ' + b + ' of ' + r.blocks, sec: r.work, block: b, blocks: r.blocks, moves: run || drib ? null : r.moves, moveSec: r.moveSec,
+        ex: run ? 'interval-run' : undefined, dr: drib ? 'f35' : undefined,
+        title: run ? 'Run hard: 90–95% max HR' : drib ? 'Dribbling track: hard' : null,
+        note: run ? 'Hill or flat. Controlled hard, not a sprint' : drib ? 'Left foot through the slalom, drive on the straight' : null });
+      out.push({ kind: 'recovery', label: b < r.blocks ? 'Recover' : 'Cool down', sec: b < r.blocks ? r.rec : 180, block: b, ex: run || drib ? 'easy-run' : 'jog-on-spot' });
     }
   } else if (r.type === 'yoga') {
     r.items.forEach((it, i) => {
@@ -3160,7 +3681,7 @@ function buildSteps(r) {
   }
   return out;
 }
-const PHASE_CLS = { work: 'ph-work', block: 'ph-work', prep: 'ph-prep', break: 'ph-rest', rest: 'ph-rest', recovery: 'ph-rest', transition: 'ph-rest', warmup: 'ph-warm', pose: 'ph-yoga', drill: 'ph-drill', z2: 'ph-z2', cooper: 'ph-work' };
+const PHASE_CLS = { jog: 'ph-warm', work: 'ph-work', block: 'ph-work', prep: 'ph-prep', break: 'ph-rest', rest: 'ph-rest', recovery: 'ph-rest', transition: 'ph-rest', warmup: 'ph-warm', pose: 'ph-yoga', drill: 'ph-drill', z2: 'ph-z2', cooper: 'ph-work' };
 const nm = id => ((exOf(id) || drOf(id) || {}).n || id);
 
 function visualFor(step, moveEx) {
@@ -3190,6 +3711,7 @@ function viewRun(iid) {
   const cur = RUN.get();
   if (cur && cur.iid === iid && cur.node && cur.mode !== 'strength') return cur.node;
   RUN.stop();
+  if (r.type === 'team') { setTimeout(() => location.replace('#log/' + iid), 0); return h('div', { class: 'page' }); }
   if (r.type === 'strength') return runStrength(f, r);
   if (r.type === 'test') return runTestPick(f, r);
   return runTimed(f, r, buildSteps(r));
@@ -3232,13 +3754,13 @@ function runTimed(f, r, steps, opt) {
     el.phase.className = 'run-phase ' + (PHASE_CLS[s.kind] || '');
     el.phase.textContent = s.kind === 'work' ? 'WORK' : s.label.toUpperCase();
     let moveEx = null;
-    if (s.kind === 'block') { const k = Math.min(s.moves.length - 1, Math.floor((s.sec - st.remaining) / s.moveSec)); moveEx = s.moves[Math.max(0, k)]; }
+    if (s.kind === 'block' && s.moves) { const k = Math.min(s.moves.length - 1, Math.floor((s.sec - st.remaining) / s.moveSec)); moveEx = s.moves[Math.max(0, k)]; }
     if (full) {
       el.vis.replaceChildren(visualFor(s, moveEx));
       const nameId = moveEx || s.ex || s.dr;
-      el.name.textContent = s.kind === 'break' || s.kind === 'rest' || s.kind === 'transition' || s.kind === 'prep' ? 'Next: ' + nm(s.ex || (s.moves && s.moves[0])) : (s.kind === 'z2' || s.kind === 'cooper') ? s.label : nm(nameId);
+      el.name.textContent = s.kind === 'break' || s.kind === 'rest' || s.kind === 'transition' || s.kind === 'prep' ? 'Next: ' + (s.dr ? nm(s.dr) : nm(s.ex || (s.moves && s.moves[0]))) : s.title ? s.title : (s.kind === 'z2' || s.kind === 'cooper' || s.kind === 'jog') ? s.label : nm(nameId);
       el.sub.textContent = s.kind === 'work' ? 'Set ' + s.set + ' of ' + s.sets + ' · exercise ' + (s.idx + 1) + ' of ' + s.n
-        : s.kind === 'block' ? 'Keep moving: 30 s per move' : s.kind === 'pose' ? s.label : s.note || '';
+        : s.kind === 'block' ? (s.moves ? 'Keep moving: 30 s per move' : s.note) : s.kind === 'pose' ? s.label : s.note || '';
       const nx = steps[st.i + 1];
       el.next.textContent = nx ? 'Then: ' + (nx.kind === 'block' ? 'Block ' + nx.block : nx.kind === 'recovery' ? (nx.label) : nx.kind === 'break' ? 'Break ' + nx.sec + 's' : nx.kind === 'rest' ? 'Set rest ' + nx.sec + 's' : nx.kind === 'transition' ? 'next pose' : nm(nx.ex || nx.dr)) : 'Last one';
       drawExtra(s);
@@ -3277,11 +3799,11 @@ function runTimed(f, r, steps, opt) {
   }
   function announce(s) {
     if (s.kind === 'work' || s.kind === 'block' || s.kind === 'cooper') { SOUND.beep(1046, 0.35, 0.45); SOUND.buzz(200); }
-    else if (s.kind === 'pose' || s.kind === 'drill' || s.kind === 'warmup' || s.kind === 'z2') SOUND.beep(880, 0.25, 0.35);
+    else if (s.kind === 'pose' || s.kind === 'drill' || s.kind === 'warmup' || s.kind === 'z2' || s.kind === 'jog') SOUND.beep(880, 0.25, 0.35);
     else SOUND.beep(523, 0.3, 0.35);
     const say = s.kind === 'work' ? nm(s.ex) : s.kind === 'break' ? 'Rest. Next, ' + nm(s.ex) : s.kind === 'rest' ? 'Set rest. ' + s.sec + ' seconds'
-      : s.kind === 'block' ? 'Block ' + s.block + '. ' + nm(s.moves[0]) : s.kind === 'recovery' ? (s.label === 'Cool down' ? 'Cool down. Great work' : 'Recover. Log your heart rate')
-      : s.kind === 'pose' ? nm(s.ex) + (s.label !== 'Hold' ? ', ' + s.label : '') : s.kind === 'drill' ? nm(s.dr || s.ex) : s.kind === 'warmup' ? nm(s.ex) : s.kind === 'transition' ? 'Next, ' + nm(s.ex) : s.kind === 'prep' ? 'Get ready' : '';
+      : s.kind === 'block' ? 'Block ' + s.block + '. ' + (s.moves ? nm(s.moves[0]) : 'Go') : s.kind === 'recovery' ? (s.label === 'Cool down' ? 'Cool down. Great work' : 'Recover. Log your heart rate')
+      : s.kind === 'pose' ? nm(s.ex) + (s.label !== 'Hold' ? ', ' + s.label : '') : s.kind === 'drill' ? nm(s.dr || s.ex) : s.kind === 'warmup' ? nm(s.ex) : s.kind === 'transition' ? 'Next, ' + nm(s.ex) : s.kind === 'prep' ? 'Get ready' : s.kind === 'jog' ? s.label : '';
     if (say) SOUND.say(say);
   }
   function go2(i) {
@@ -3306,11 +3828,11 @@ function runTimed(f, r, steps, opt) {
     const sec = Math.ceil(st.remaining);
     if (sec !== st.lastSec) {
       st.lastSec = sec;
-      if (sec <= 3 && sec >= 1 && !['pose', 'transition', 'z2', 'drill'].includes(s.kind)) SOUND.beep(660, 0.12, 0.3);
+      if (sec <= 3 && sec >= 1 && !['pose', 'transition', 'z2', 'drill', 'jog'].includes(s.kind)) SOUND.beep(660, 0.12, 0.3);
       if (s.kind === 'drill' && sec === 30) { SOUND.beep(784, 0.12); setTimeout(() => SOUND.beep(784, 0.12), 220); }
       if (s.kind === 'z2' && sec > 0 && sec % 600 === 0 && sec !== s.sec) SOUND.say(Math.round(sec / 60) + ' minutes to go');
     }
-    if (s.kind === 'block') {
+    if (s.kind === 'block' && s.moves) {
       const k = Math.min(s.moves.length - 1, Math.floor((s.sec - st.remaining) / s.moveSec));
       if (k !== st.moveIdx) {
         if (st.moveIdx >= 0) { SOUND.beep(988, 0.12, 0.35); SOUND.say(nm(s.moves[k])); }
@@ -3507,7 +4029,7 @@ function viewLog(iid) {
       field('Minutes', numInput(v.min, { inputmode: 'numeric', oninput: e => v.min = +e.target.value || null })),
       field('Avg HR', numInput(v.hrAvg, { inputmode: 'numeric', oninput: e => v.hrAvg = +e.target.value || null })),
       field('Max HR', numInput(v.hrMax, { inputmode: 'numeric', oninput: e => v.hrMax = +e.target.value || null }))));
-    if (r.type === 'zone2' || r.type === 'intervals' || r.type === 'football' || r.type === 'test') box.append(h('div', { class: 'grid2' },
+    if (r.type === 'zone2' || r.type === 'intervals' || r.type === 'football' || r.type === 'test' || r.type === 'team') box.append(h('div', { class: 'grid2' },
       field('Distance (km)', numInput(v.dist, { oninput: e => v.dist = +e.target.value || null })),
       field('Time in Zone 2 (min)', numInput(v.z2min, { inputmode: 'numeric', oninput: e => v.z2min = e.target.value === '' ? null : +e.target.value }))));
     if (r.type === 'intervals') {
